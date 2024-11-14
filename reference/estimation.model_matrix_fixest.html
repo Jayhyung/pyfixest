@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -91,37 +125,44 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Quickstart</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../compare-fixest-pyfixest.html"> 
-<span class="menu-text">Compare fixest &amp; pyfixest</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../difference-in-differences.html"> 
-<span class="menu-text">Difference-in-Differences Estimation</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../replicating-the-effect.html"> 
-<span class="menu-text">Replicating ‘The Effect’ with PyFixest</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../stargazer.html"> 
-<span class="menu-text">Regression Tables with <code>pf.etable()</code> and <code>Stargazer</code></span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../marginaleffects.html"> 
-<span class="menu-text">Hypothesis testing and Marginal Effects with <code>py-marginaleffects</code></span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
-<span class="menu-text">Documentation</span></a>
+<span class="menu-text">Function Reference</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../changelog.html"> 
+<span class="menu-text">Changelog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../contributing.html"> 
 <span class="menu-text">Contributing</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../news.html"> 
-<span class="menu-text">Changelog</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-learn-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Learn more</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-learn-more">    
+        <li>
+    <a class="dropdown-item" href="../table-layout.html">
+ <span class="dropdown-text">Regression Tables and Summary Statistics</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../marginaleffects.html">
+ <span class="dropdown-text">Hypothesis Testing and Marginal Effects</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../difference-in-differences.html">
+ <span class="dropdown-text">Difference-in-Differences Estimation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../compare-fixest-pyfixest.html">
+ <span class="dropdown-text">Compare fixest &amp; PyFixest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../replicating-the-effect.html">
+ <span class="dropdown-text">Replicating ‘The Effect’ with PyFixest</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -169,14 +210,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.feols.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.feols</span></a>
+  <a href="../reference/estimation.estimation.feols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.estimation.feols</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.fepois.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.fepois</span></a>
+  <a href="../reference/estimation.estimation.fepois.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.estimation.fepois</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,20 +263,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.Feols.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.Feols</span></a>
+  <a href="../reference/estimation.feols_.Feols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.feols_.Feols</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.Fepois.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.Fepois</span></a>
+  <a href="../reference/estimation.fepois_.Fepois.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.fepois_.Fepois</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/estimation.Feiv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">estimation.Feiv</span></a>
+  <a href="../reference/estimation.feiv_.Feiv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.feiv_.Feiv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.feols_compressed_.FeolsCompressed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.feols_compressed_.FeolsCompressed</span></a>
   </div>
 </li>
       </ul>
@@ -251,6 +298,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/did.visualize.panelview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did.visualize.panelview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/report.summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">report.summary</span></a>
   </div>
@@ -263,6 +316,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/report.dtable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">report.dtable</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/report.coefplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">report.coefplot</span></a>
   </div>
@@ -271,6 +330,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../reference/report.iplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">report.iplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/did.visualize.panelview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did.visualize.panelview</span></a>
   </div>
 </li>
       </ul>
@@ -318,16 +383,22 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="pyfixest.estimation.model_matrix_fixest" class="level1">
 <h1>estimation.model_matrix_fixest</h1>
-<p><code>estimation.model_matrix_fixest(FixestFormula, data, drop_singletons=False, weights=None, drop_intercept=False)</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>estimation.model_matrix_fixest(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    FixestFormula</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    data</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    drop_singletons<span class="op">=</span><span class="va">False</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    weights<span class="op">=</span><span class="va">None</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    drop_intercept<span class="op">=</span><span class="va">False</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create model matrices for fixed effects estimation.</p>
 <p>This function processes the data and then calls <code>formulaic.Formula.get_model_matrix()</code> to create the model matrices.</p>
-<section id="parameters" class="level2">
-<h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
+<section id="parameters" class="level2 doc-section doc-section-parameters">
+<h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 20%">
-<col style="width: 68%">
+<col style="width: 69%">
 <col style="width: 4%">
 </colgroup>
 <thead>
@@ -340,37 +411,37 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>FixestFormula</code></td>
+<td>FixestFormula</td>
 <td>A pyfixest.estimation.FormulaParser.FixestFormula object</td>
 <td>that contains information on the model formula, the formula of the first and second stage, dependent variable, covariates, fixed effects, endogenous variables (if any), and instruments (if any).</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
-<td><code>data</code></td>
+<td>data</td>
 <td>pd.DataFrame</td>
 <td>The input DataFrame containing the data.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="odd">
-<td><code>drop_singletons</code></td>
+<td>drop_singletons</td>
 <td>bool</td>
 <td>Whether to drop singleton fixed effects. Default is False.</td>
 <td><code>False</code></td>
 </tr>
 <tr class="even">
-<td><code>weights</code></td>
+<td>weights</td>
 <td>str or None</td>
 <td>A string specifying the name of the weights column in <code>data</code>. Default is None.</td>
 <td><code>None</code></td>
 </tr>
 <tr class="odd">
-<td><code>data</code></td>
+<td>data</td>
 <td>pd.DataFrame</td>
 <td>The input DataFrame containing the data.</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
-<td><code>drop_intercept</code></td>
+<td>drop_intercept</td>
 <td>bool</td>
 <td>Whether to drop the intercept from the model matrix. Default is False. If True, the intercept is dropped ex post from the model matrix created by formulaic.</td>
 <td><code>False</code></td>
@@ -378,21 +449,24 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="returns" class="level2">
-<h2 class="anchored" data-anchor-id="returns">Returns</h2>
+<section id="returns" class="level2 doc-section doc-section-returns">
+<h2 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 0%">
-<col style="width: 99%">
+<col style="width: 0%">
+<col style="width: 98%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>Name</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td></td>
 <td>dict</td>
 <td>A dictionary with the following keys and value types: - ‘Y’ : pd.DataFrame The dependent variable. - ‘X’ : pd.DataFrame The Design Matrix. - ‘fe’ : Optional[pd.DataFrame] The model’s fixed effects. None if not applicable. - ‘endogvar’ : Optional[pd.DataFrame] The model’s endogenous variable(s), None if not applicable. - ‘Z’ : np.ndarray The model’s set of instruments (exogenous covariates plus instruments). None if not applicable. - ‘weights_df’ : Optional[pd.DataFrame] DataFrame containing weights, None if weights are not used. - ‘na_index’ : np.ndarray Array indicating rows droppled beause of NA values or singleton fixed effects. - ‘na_index_str’ : str String representation of ‘na_index’. - ’_icovars’ : Optional[list[str]] List of variables interacted with i() syntax, None if not applicable. - ‘X_is_empty’ : bool Flag indicating whether X is empty.</td>
 </tr>

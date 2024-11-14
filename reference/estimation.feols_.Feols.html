@@ -1,0 +1,2684 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>estimation.feols_.feols</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../pyfixest.html"> 
+<span class="menu-text">PyFixest</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../quickstart.html"> 
+<span class="menu-text">Quickstart</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
+<span class="menu-text">Function Reference</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../changelog.html"> 
+<span class="menu-text">Changelog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-learn-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Learn more</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-learn-more">    
+        <li>
+    <a class="dropdown-item" href="../table-layout.html">
+ <span class="dropdown-text">Regression Tables and Summary Statistics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../marginaleffects.html">
+ <span class="dropdown-text">Hypothesis Testing and Marginal Effects</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../difference-in-differences.html">
+ <span class="dropdown-text">Difference-in-Differences Estimation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../compare-fixest-pyfixest.html">
+ <span class="dropdown-text">Compare fixest &amp; PyFixest</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../replicating-the-effect.html">
+ <span class="dropdown-text">Replicating ‘The Effect’ with PyFixest</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/py-econometrics/pyfixest/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/estimation.feols_.Feols.html">Estimation Classes</a></li><li class="breadcrumb-item"><a href="../reference/estimation.feols_.Feols.html">estimation.feols_.Feols</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PyFixest Function Reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Estimation Functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.estimation.feols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.estimation.feols</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.estimation.fepois.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.estimation.fepois</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/did.estimation.did2s.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did.estimation.did2s</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/did.estimation.lpdid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did.estimation.lpdid</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/did.estimation.event_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did.estimation.event_study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.bonferroni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.bonferroni</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.rwolf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.rwolf</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Estimation Classes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.feols_.Feols.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">estimation.feols_.Feols</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.fepois_.Fepois.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.fepois_.Fepois</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.feiv_.Feiv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.feiv_.Feiv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.feols_compressed_.FeolsCompressed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.feols_compressed_.FeolsCompressed</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Summarize and Visualize</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/did.visualize.panelview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did.visualize.panelview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">report.summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.etable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">report.etable</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.dtable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">report.dtable</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.coefplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">report.coefplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/report.iplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">report.iplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/did.visualize.panelview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">did.visualize.panelview</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Misc / Utilities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.demean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.demean</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.detect_singletons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.detect_singletons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/estimation.model_matrix_fixest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">estimation.model_matrix_fixest</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="pyfixest.estimation.feols_.Feols" class="level1">
+<h1>estimation.feols_.Feols</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    FixestFormula</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    data</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    ssc_dict</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    drop_singletons</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    drop_intercept</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    weights</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    weights_type</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    collin_tol</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    fixef_tol</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    lookup_demeaned_data</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    solver<span class="op">=</span><span class="st">'np.linalg.solve'</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    store_data<span class="op">=</span><span class="va">True</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    copy_data<span class="op">=</span><span class="va">True</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    lean<span class="op">=</span><span class="va">False</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    sample_split_var<span class="op">=</span><span class="va">None</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    sample_split_value<span class="op">=</span><span class="va">None</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Non user-facing class to estimate a linear regression via OLS.</p>
+<p>Users should not directly instantiate this class, but rather use the <a href="../reference/estimation.feols.qmd">feols()</a> function. Note that no demeaning is performed in this class: demeaning is performed in the <a href="../reference/estimation.fixest_multi.qmd">FixestMulti</a> class (to allow for caching of demeaned variables for multiple estimation).</p>
+<section id="parameters" class="level2 doc-section doc-section-parameters">
+<h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 70%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Y</td>
+<td>np.ndarray</td>
+<td>Dependent variable, a two-dimensional numpy array.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>X</td>
+<td>np.ndarray</td>
+<td>Independent variables, a two-dimensional numpy array.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>weights</td>
+<td>np.ndarray</td>
+<td>Weights, a one-dimensional numpy array.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>collin_tol</td>
+<td>float</td>
+<td>Tolerance level for collinearity checks.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>coefnames</td>
+<td>list[str]</td>
+<td>Names of the coefficients (of the design matrix X).</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>weights_name</td>
+<td>Optional[str]</td>
+<td>Name of the weights variable.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>weights_type</td>
+<td>Optional[str]</td>
+<td>Type of the weights variable. Either “aweights” for analytic weights or “fweights” for frequency weights.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>solver</td>
+<td>str, optional.</td>
+<td>The solver to use for the regression. Can be either “np.linalg.solve” or “np.linalg.lstsq”. Defaults to “np.linalg.solve”.</td>
+<td><code>'np.linalg.solve'</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes" class="level2 doc-section doc-section-attributes">
+<h2 class="doc-section doc-section-attributes anchored" data-anchor-id="attributes">Attributes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>_method</td>
+<td>str</td>
+<td>Specifies the method used for regression, set to “feols”.</td>
+</tr>
+<tr class="even">
+<td>_is_iv</td>
+<td>bool</td>
+<td>Indicates whether instrumental variables are used, initialized as False.</td>
+</tr>
+<tr class="odd">
+<td>_Y</td>
+<td>np.ndarray</td>
+<td>The demeaned dependent variable, a two-dimensional numpy array.</td>
+</tr>
+<tr class="even">
+<td>_X</td>
+<td>np.ndarray</td>
+<td>The demeaned independent variables, a two-dimensional numpy array.</td>
+</tr>
+<tr class="odd">
+<td>_X_is_empty</td>
+<td>bool</td>
+<td>Indicates whether the X array is empty.</td>
+</tr>
+<tr class="even">
+<td>_collin_tol</td>
+<td>float</td>
+<td>Tolerance level for collinearity checks.</td>
+</tr>
+<tr class="odd">
+<td>_coefnames</td>
+<td>list</td>
+<td>Names of the coefficients (of the design matrix X).</td>
+</tr>
+<tr class="even">
+<td>_collin_vars</td>
+<td>list</td>
+<td>Variables identified as collinear.</td>
+</tr>
+<tr class="odd">
+<td>_collin_index</td>
+<td>list</td>
+<td>Indices of collinear variables.</td>
+</tr>
+<tr class="even">
+<td>_Z</td>
+<td>np.ndarray</td>
+<td>Alias for the _X array, used for calculations.</td>
+</tr>
+<tr class="odd">
+<td>_solver</td>
+<td>str</td>
+<td>The solver used for the regression.</td>
+</tr>
+<tr class="even">
+<td>_weights</td>
+<td>np.ndarray</td>
+<td>Array of weights for each observation.</td>
+</tr>
+<tr class="odd">
+<td>_N</td>
+<td>int</td>
+<td>Number of observations.</td>
+</tr>
+<tr class="even">
+<td>_k</td>
+<td>int</td>
+<td>Number of independent variables (or features).</td>
+</tr>
+<tr class="odd">
+<td>_support_crv3_inference</td>
+<td>bool</td>
+<td>Indicates support for CRV3 inference.</td>
+</tr>
+<tr class="even">
+<td>_data</td>
+<td>Any</td>
+<td>Data used in the regression, to be enriched outside of the class.</td>
+</tr>
+<tr class="odd">
+<td>_fml</td>
+<td>Any</td>
+<td>Formula used in the regression, to be enriched outside of the class.</td>
+</tr>
+<tr class="even">
+<td>_has_fixef</td>
+<td>bool</td>
+<td>Indicates whether fixed effects are used.</td>
+</tr>
+<tr class="odd">
+<td>_fixef</td>
+<td>Any</td>
+<td>Fixed effects used in the regression.</td>
+</tr>
+<tr class="even">
+<td>_icovars</td>
+<td>Any</td>
+<td>Internal covariates, to be enriched outside of the class.</td>
+</tr>
+<tr class="odd">
+<td>_ssc_dict</td>
+<td>dict</td>
+<td>dictionary for sum of squares and cross products matrices.</td>
+</tr>
+<tr class="even">
+<td>_tZX</td>
+<td>np.ndarray</td>
+<td>Transpose of Z multiplied by X, set in get_fit().</td>
+</tr>
+<tr class="odd">
+<td>_tXZ</td>
+<td>np.ndarray</td>
+<td>Transpose of X multiplied by Z, set in get_fit().</td>
+</tr>
+<tr class="even">
+<td>_tZy</td>
+<td>np.ndarray</td>
+<td>Transpose of Z multiplied by Y, set in get_fit().</td>
+</tr>
+<tr class="odd">
+<td>_tZZinv</td>
+<td>np.ndarray</td>
+<td>Inverse of the transpose of Z multiplied by Z, set in get_fit().</td>
+</tr>
+<tr class="even">
+<td>_beta_hat</td>
+<td>np.ndarray</td>
+<td>Estimated regression coefficients.</td>
+</tr>
+<tr class="odd">
+<td>_Y_hat_link</td>
+<td>np.ndarray</td>
+<td>Prediction at the level of the explanatory variable, i.e., the linear predictor X @ beta.</td>
+</tr>
+<tr class="even">
+<td>_Y_hat_response</td>
+<td>np.ndarray</td>
+<td>Prediction at the level of the response variable, i.e., the expected predictor E(Y|X).</td>
+</tr>
+<tr class="odd">
+<td>_u_hat</td>
+<td>np.ndarray</td>
+<td>Residuals of the regression model.</td>
+</tr>
+<tr class="even">
+<td>_scores</td>
+<td>np.ndarray</td>
+<td>Scores used in the regression analysis.</td>
+</tr>
+<tr class="odd">
+<td>_hessian</td>
+<td>np.ndarray</td>
+<td>Hessian matrix used in the regression.</td>
+</tr>
+<tr class="even">
+<td>_bread</td>
+<td>np.ndarray</td>
+<td>Bread matrix, used in calculating the variance-covariance matrix.</td>
+</tr>
+<tr class="odd">
+<td>_vcov_type</td>
+<td>Any</td>
+<td>Type of variance-covariance matrix used.</td>
+</tr>
+<tr class="even">
+<td>_vcov_type_detail</td>
+<td>Any</td>
+<td>Detailed specification of the variance-covariance matrix type.</td>
+</tr>
+<tr class="odd">
+<td>_is_clustered</td>
+<td>bool</td>
+<td>Indicates if clustering is used in the variance-covariance calculation.</td>
+</tr>
+<tr class="even">
+<td>_clustervar</td>
+<td>Any</td>
+<td>Variable used for clustering in the variance-covariance calculation.</td>
+</tr>
+<tr class="odd">
+<td>_G</td>
+<td>Any</td>
+<td>Group information used in clustering.</td>
+</tr>
+<tr class="even">
+<td>_ssc</td>
+<td>Any</td>
+<td>Sum of squares and cross products matrix.</td>
+</tr>
+<tr class="odd">
+<td>_vcov</td>
+<td>np.ndarray</td>
+<td>Variance-covariance matrix of the estimated coefficients.</td>
+</tr>
+<tr class="even">
+<td>_se</td>
+<td>np.ndarray</td>
+<td>Standard errors of the estimated coefficients.</td>
+</tr>
+<tr class="odd">
+<td>_tstat</td>
+<td>np.ndarray</td>
+<td>T-statistics of the estimated coefficients.</td>
+</tr>
+<tr class="even">
+<td>_pvalue</td>
+<td>np.ndarray</td>
+<td>P-values associated with the t-statistics.</td>
+</tr>
+<tr class="odd">
+<td>_conf_int</td>
+<td>np.ndarray</td>
+<td>Confidence intervals for the estimated coefficients.</td>
+</tr>
+<tr class="even">
+<td>_F_stat</td>
+<td>Any</td>
+<td>F-statistic for the model, set in get_Ftest().</td>
+</tr>
+<tr class="odd">
+<td>_fixef_dict</td>
+<td>dict</td>
+<td>dictionary containing fixed effects estimates.</td>
+</tr>
+<tr class="even">
+<td>_sumFE</td>
+<td>np.ndarray</td>
+<td>Sum of all fixed effects for each observation.</td>
+</tr>
+<tr class="odd">
+<td>_rmse</td>
+<td>float</td>
+<td>Root mean squared error of the model.</td>
+</tr>
+<tr class="even">
+<td>_r2</td>
+<td>float</td>
+<td>R-squared value of the model.</td>
+</tr>
+<tr class="odd">
+<td>_r2_within</td>
+<td>float</td>
+<td>R-squared value computed on demeaned dependent variable.</td>
+</tr>
+<tr class="even">
+<td>_adj_r2</td>
+<td>float</td>
+<td>Adjusted R-squared value of the model.</td>
+</tr>
+<tr class="odd">
+<td>_adj_r2_within</td>
+<td>float</td>
+<td>Adjusted R-squared value computed on demeaned dependent variable.</td>
+</tr>
+<tr class="even">
+<td>_solver</td>
+<td>str</td>
+<td>The solver used to fit the normal equation.</td>
+</tr>
+<tr class="odd">
+<td>_data</td>
+<td>pd.DataFrame</td>
+<td>The data frame used in the estimation. None if arguments <code>lean = True</code> or <code>store_data = False</code>.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.add_fixest_multi_context">add_fixest_multi_context</a></td>
+<td>Enrich Feols object.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.ccv">ccv</a></td>
+<td>Compute the Causal Cluster Variance following Abadie et al (QJE 2023).</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.coef">coef</a></td>
+<td>Fitted model coefficents.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.confint">confint</a></td>
+<td>Fitted model confidence intervals.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.demean">demean</a></td>
+<td>Demean the dependent variable and covariates by the fixed effect(s).</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.drop_multicol_vars">drop_multicol_vars</a></td>
+<td>Detect and drop multicollinear variables.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.fixef">fixef</a></td>
+<td>Compute the coefficients of (swept out) fixed effects for a regression model.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.get_fit">get_fit</a></td>
+<td>Fit an OLS model.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.get_inference">get_inference</a></td>
+<td>Compute standard errors, t-statistics, and p-values for the regression model.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.get_performance">get_performance</a></td>
+<td>Get Goodness-of-Fit measures.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.plot_ritest">plot_ritest</a></td>
+<td>Plot the distribution of the Randomization Inference Statistics.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.predict">predict</a></td>
+<td>Predict values of the model on new data.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.prepare_model_matrix">prepare_model_matrix</a></td>
+<td>Prepare model matrices for estimation.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.pvalue">pvalue</a></td>
+<td>Fitted model p-values.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.resid">resid</a></td>
+<td>Fitted model residuals.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.ritest">ritest</a></td>
+<td>Conduct Randomization Inference (RI) test against a null hypothesis of</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.se">se</a></td>
+<td>Fitted model standard errors.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.solve_ols">solve_ols</a></td>
+<td>Solve the ordinary least squares problem using the specified solver.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.tidy">tidy</a></td>
+<td>Tidy model outputs.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.to_array">to_array</a></td>
+<td>Convert estimation data frames to np arrays.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.tstat">tstat</a></td>
+<td>Fitted model t-statistics.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.update">update</a></td>
+<td>Update coefficients for new observations using Sherman-Morrison formula.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.vcov">vcov</a></td>
+<td>Compute covariance matrices for an estimated regression model.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.wald_test">wald_test</a></td>
+<td>Conduct Wald test.</td>
+</tr>
+<tr class="odd">
+<td><a href="#pyfixest.estimation.feols_.Feols.wildboottest">wildboottest</a></td>
+<td>Run a wild cluster bootstrap based on an object of type “Feols”.</td>
+</tr>
+<tr class="even">
+<td><a href="#pyfixest.estimation.feols_.Feols.wls_transform">wls_transform</a></td>
+<td>Transform model matrices for WLS Estimation.</td>
+</tr>
+</tbody>
+</table>
+<section id="pyfixest.estimation.feols_.Feols.add_fixest_multi_context" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.add_fixest_multi_context">add_fixest_multi_context</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.add_fixest_multi_context(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    depvar</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    Y</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    _data</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    _ssc_dict</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    _k_fe</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    fval</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    store_data</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Enrich Feols object.</p>
+<p>Enrich an instance of <code>Feols</code> Class with additional attributes set in the <code>FixestMulti</code> class.</p>
+<section id="parameters-1" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-1">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 63%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FixestFormula</td>
+<td>FixestFormula</td>
+<td>The formula(s) used for estimation encoded in a <code>FixestFormula</code> object.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>depvar</td>
+<td>str</td>
+<td>The dependent variable of the regression model.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>Y</td>
+<td>pd.Series</td>
+<td>The dependent variable of the regression model.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>_data</td>
+<td>pd.DataFrame</td>
+<td>The data used for estimation.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>_ssc_dict</td>
+<td>dict</td>
+<td>A dictionary with the sum of squares and cross products matrices.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>_k_fe</td>
+<td>int</td>
+<td>The number of fixed effects.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>fval</td>
+<td>str</td>
+<td>The fixed effects formula.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>store_data</td>
+<td>bool</td>
+<td>Indicates whether to save the data used for estimation in the object</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.ccv" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.ccv">ccv</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.ccv(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    treatment</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    cluster<span class="op">=</span><span class="va">None</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span><span class="va">None</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    n_splits<span class="op">=</span><span class="dv">8</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    pk<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    qk<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Compute the Causal Cluster Variance following Abadie et al (QJE 2023).</p>
+<section id="parameters-2" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-2">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 82%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>treatment</td>
+<td></td>
+<td>The name of the treatment variable.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>cluster</td>
+<td>str</td>
+<td>The name of the cluster variable. None by default. If None, uses the cluster variable from the model fit.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>seed</td>
+<td>int</td>
+<td>An integer to set the random seed. Defaults to None.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>n_splits</td>
+<td>int</td>
+<td>The number of splits to use in the cross-fitting procedure. Defaults to 8.</td>
+<td><code>8</code></td>
+</tr>
+<tr class="odd">
+<td>pk</td>
+<td>float</td>
+<td>The proportion of sampled clusters. Defaults to 1, which corresponds to all clusters of the population being sampled.</td>
+<td><code>1</code></td>
+</tr>
+<tr class="even">
+<td>qk</td>
+<td>float</td>
+<td>The proportion of sampled observations within each cluster. Defaults to 1, which corresponds to all observations within each cluster being sampled.</td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-1" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-1">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 11%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.DataFrame</td>
+<td>A DataFrame with inference based on the “Causal Cluster Variance” and “regular” CRV1 inference.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples" class="level4 doc-section doc-section-examples">
+<h4 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyfixest.estimation <span class="im">import</span> feols</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyfixest.utils <span class="im">import</span> get_data</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> get_data()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"D1"</span>] <span class="op">=</span> np.random.choice([<span class="dv">0</span>, <span class="dv">1</span>], size<span class="op">=</span>data.shape[<span class="dv">0</span>])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> feols(<span class="st">"Y ~ D"</span>, data<span class="op">=</span>data, vcov<span class="op">=</span>{<span class="st">"CRV1"</span>: <span class="st">"group_id"</span>})</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>fit.ccv(treatment<span class="op">=</span><span class="st">"D"</span>, pk<span class="op">=</span><span class="fl">0.05</span>, gk<span class="op">=</span><span class="fl">0.5</span>, n_splits<span class="op">=</span><span class="dv">8</span>, seed<span class="op">=</span><span class="dv">123</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.coef" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.coef">coef</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.coef()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fitted model coefficents.</p>
+<section id="returns-2" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-2">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.Series</td>
+<td>A pd.Series with the estimated coefficients of the regression model.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.confint" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.confint">confint</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.confint(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.05</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    keep<span class="op">=</span><span class="va">None</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    drop<span class="op">=</span><span class="va">None</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    exact_match<span class="op">=</span><span class="va">False</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    joint<span class="op">=</span><span class="va">False</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span><span class="va">None</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    reps<span class="op">=</span><span class="dv">10000</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fitted model confidence intervals.</p>
+<section id="parameters-3" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-3">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 6%">
+<col style="width: 89%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>alpha</td>
+<td>float</td>
+<td>The significance level for confidence intervals. Defaults to 0.05. keep: str or list of str, optional</td>
+<td><code>0.05</code></td>
+</tr>
+<tr class="even">
+<td>joint</td>
+<td>bool</td>
+<td>Whether to compute simultaneous confidence interval for joint null of parameters selected by <code>keep</code> and <code>drop</code>. Defaults to False. See https://www.causalml-book.org/assets/chapters/CausalML_chap_4.pdf, Remark 4.4.1 for details.</td>
+<td><code>False</code></td>
+</tr>
+<tr class="odd">
+<td>keep</td>
+<td>Optional[Union[list, str]]</td>
+<td>The pattern for retaining coefficient names. You can pass a string (one pattern) or a list (multiple patterns). Default is keeping all coefficients. You should use regular expressions to select coefficients. “age”, # would keep all coefficients containing age r”^tr”, # would keep all coefficients starting with tr r”\d$“, # would keep all coefficients ending with number Output will be in the order of the patterns.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>drop</td>
+<td>Optional[Union[list, str]]</td>
+<td>The pattern for excluding coefficient names. You can pass a string (one pattern) or a list (multiple patterns). Syntax is the same as for <code>keep</code>. Default is keeping all coefficients. Parameter <code>keep</code> and <code>drop</code> can be used simultaneously.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>exact_match</td>
+<td>Optional[bool]</td>
+<td>Whether to use exact match for <code>keep</code> and <code>drop</code>. Default is False. If True, the pattern will be matched exactly to the coefficient name instead of using regular expressions.</td>
+<td><code>False</code></td>
+</tr>
+<tr class="even">
+<td>reps</td>
+<td>int</td>
+<td>The number of bootstrap iterations to run for joint confidence intervals. Defaults to 10_000. Only used if <code>joint</code> is True.</td>
+<td><code>10000</code></td>
+</tr>
+<tr class="odd">
+<td>seed</td>
+<td>int</td>
+<td>The seed for the random number generator. Defaults to None. Only used if <code>joint</code> is True.</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-3" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-3">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.DataFrame</td>
+<td>A pd.DataFrame with confidence intervals of the estimated regression model for the selected coefficients.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples-1" class="level4 doc-section doc-section-examples">
+<h4 class="doc-section doc-section-examples anchored" data-anchor-id="examples-1">Examples</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyfixest.utils <span class="im">import</span> get_data</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyfixest.estimation <span class="im">import</span> feols</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> get_data()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> feols(<span class="st">"Y ~ C(f1)"</span>, data<span class="op">=</span>data)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>fit.confint(alpha<span class="op">=</span><span class="fl">0.10</span>).head()</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>fit.confint(alpha<span class="op">=</span><span class="fl">0.10</span>, joint<span class="op">=</span><span class="va">True</span>, reps<span class="op">=</span><span class="dv">9999</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.demean" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.demean">demean</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.demean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Demean the dependent variable and covariates by the fixed effect(s).</p>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.drop_multicol_vars" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.drop_multicol_vars">drop_multicol_vars</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.drop_multicol_vars()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Detect and drop multicollinear variables.</p>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.fixef" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.fixef">fixef</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.fixef(atol<span class="op">=</span><span class="fl">1e-06</span>, btol<span class="op">=</span><span class="fl">1e-06</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Compute the coefficients of (swept out) fixed effects for a regression model.</p>
+<p>This method creates the following attributes: - <code>alphaDF</code> (pd.DataFrame): A DataFrame with the estimated fixed effects. - <code>sumFE</code> (np.array): An array with the sum of fixed effects for each observation (i = 1, …, N).</p>
+<section id="returns-4" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-4">Returns</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.get_fit" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.get_fit">get_fit</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.get_fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fit an OLS model.</p>
+<section id="returns-5" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-5">Returns</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.get_inference" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.get_inference">get_inference</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.get_inference(alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Compute standard errors, t-statistics, and p-values for the regression model.</p>
+<section id="parameters-4" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-4">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 80%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>alpha</td>
+<td>float</td>
+<td>The significance level for confidence intervals. Defaults to 0.05, which produces a 95% confidence interval.</td>
+<td><code>0.05</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-6" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-6">Returns</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.get_performance" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.get_performance">get_performance</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.get_performance()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Get Goodness-of-Fit measures.</p>
+<p>Compute multiple additional measures commonly reported with linear regression output, including R-squared and adjusted R-squared. Note that variables with the suffix _within use demeaned dependent variables Y, while variables without do not or are invariant to demeaning.</p>
+<section id="returns-7" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-7">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 75%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>None</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Creates the following instances:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- r2 (float): R-squared of the regression model.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- adj_r2 (float): Adjusted R-squared of the regression model.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- r2_within (float): R-squared of the regression model, computed on</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>demeaned dependent variable.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- adj_r2_within (float): Adjusted R-squared of the regression model,</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>computed on demeaned dependent variable.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.plot_ritest" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.plot_ritest">plot_ritest</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.plot_ritest(plot_backend<span class="op">=</span><span class="st">'lets_plot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Plot the distribution of the Randomization Inference Statistics.</p>
+<section id="parameters-5" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-5">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 72%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>plot_backend</td>
+<td>str</td>
+<td>The plotting backend to use. Defaults to “lets_plot”. Alternatively, “matplotlib” is available.</td>
+<td><code>'lets_plot'</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-8" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-8">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 77%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>A lets_plot or matplotlib figure with the distribution of the Randomization</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Inference Statistics.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.predict" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.predict">predict</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.predict(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    newdata<span class="op">=</span><span class="va">None</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    atol<span class="op">=</span><span class="fl">1e-06</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    btol<span class="op">=</span><span class="fl">1e-06</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">type</span><span class="op">=</span><span class="st">'link'</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Predict values of the model on new data.</p>
+<p>Return a flat np.array with predicted values of the regression model. If new fixed effect levels are introduced in <code>newdata</code>, predicted values for such observations will be set to NaN.</p>
+<section id="parameters-6" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-6">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 12%">
+<col style="width: 76%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>newdata</td>
+<td>Optional[DataFrameType]</td>
+<td>A pd.DataFrame or pl.DataFrame with the data to be used for prediction. If None (default), the data used for fitting the model is used.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>type</td>
+<td>str</td>
+<td>The type of prediction to be computed. Can be either “response” (default) or “link”. For linear models, both are identical.</td>
+<td><code>'link'</code></td>
+</tr>
+<tr class="odd">
+<td>atol</td>
+<td>Float</td>
+<td>Stopping tolerance for scipy.sparse.linalg.lsqr(). See https://docs.scipy.org/doc/ scipy/reference/generated/scipy.sparse.linalg.lsqr.html</td>
+<td><code>1e-6</code></td>
+</tr>
+<tr class="even">
+<td>btol</td>
+<td>Float</td>
+<td>Another stopping tolerance for scipy.sparse.linalg.lsqr(). See https://docs.scipy.org/doc/ scipy/reference/generated/scipy.sparse.linalg.lsqr.html</td>
+<td><code>1e-6</code></td>
+</tr>
+<tr class="odd">
+<td>link</td>
+<td></td>
+<td>The type of prediction to be made. Can be either ‘link’ or ‘response’. Defaults to ‘link’. ‘link’ and ‘response’ lead to identical results for linear models.</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-9" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-9">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 14%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>y_hat</td>
+<td>np.ndarray</td>
+<td>A flat np.array with predicted values of the regression model.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.prepare_model_matrix" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.prepare_model_matrix">prepare_model_matrix</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.prepare_model_matrix()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Prepare model matrices for estimation.</p>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.pvalue" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.pvalue">pvalue</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.pvalue()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fitted model p-values.</p>
+<section id="returns-10" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-10">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.Series</td>
+<td>A pd.Series with p-values of the estimated regression model.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.resid" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.resid">resid</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.resid()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fitted model residuals.</p>
+<section id="returns-11" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-11">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>np.ndarray</td>
+<td>A np.ndarray with the residuals of the estimated regression model.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.ritest" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.ritest">ritest</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.ritest(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    resampvar</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    cluster<span class="op">=</span><span class="va">None</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    reps<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">type</span><span class="op">=</span><span class="st">'randomization-c'</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    rng<span class="op">=</span><span class="va">None</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    choose_algorithm<span class="op">=</span><span class="st">'auto'</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    store_ritest_statistics<span class="op">=</span><span class="va">False</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    level<span class="op">=</span><span class="fl">0.95</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Conduct Randomization Inference (RI) test against a null hypothesis of <code>resampvar = 0</code>.</p>
+<section id="parameters-7" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-7">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 78%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>resampvar</td>
+<td>str</td>
+<td>The name of the variable to be resampled.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>cluster</td>
+<td>str</td>
+<td>The name of the cluster variable in case of cluster random assignment. If provided, <code>resampvar</code> is held constant within each <code>cluster</code>. Defaults to None.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>reps</td>
+<td>int</td>
+<td>The number of randomization iterations. Defaults to 100.</td>
+<td><code>100</code></td>
+</tr>
+<tr class="even">
+<td>type</td>
+<td>str</td>
+<td>The type of the randomization inference test. Can be “randomization-c” or “randomization-t”. Note that the “randomization-c” is much faster, while the “randomization-t” is recommended by Wu &amp; Ding (JASA, 2021).</td>
+<td><code>'randomization-c'</code></td>
+</tr>
+<tr class="odd">
+<td>rng</td>
+<td>np.random.Generator</td>
+<td>A random number generator. Defaults to None.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>choose_algorithm</td>
+<td>str</td>
+<td>The algorithm to use for the computation. Defaults to “auto”. The alternative is “fast” and “slow”, and should only be used for running CI tests. Ironically, this argument is not tested for any input errors from the user! So please don’t use it =)</td>
+<td><code>'auto'</code></td>
+</tr>
+<tr class="odd">
+<td>include_plot</td>
+<td></td>
+<td>Whether to include a plot of the distribution p-values. Defaults to False.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>store_ritest_statistics</td>
+<td>bool</td>
+<td>Whether to store the simulated statistics of the RI procedure. Defaults to False. If True, stores the simulated statistics in the model object via the <code>ritest_statistics</code> attribute as a numpy array.</td>
+<td><code>False</code></td>
+</tr>
+<tr class="odd">
+<td>level</td>
+<td>float</td>
+<td>The level for the confidence interval of the randomization inference p-value. Defaults to 0.95.</td>
+<td><code>0.95</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-12" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-12">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 77%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>A pd.Series with the regression coefficient of <code>resampvar</code> and the p-value</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>of the RI test. Additionally, reports the standard error and the confidence</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>interval of the p-value.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.se" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.se">se</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.se()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fitted model standard errors.</p>
+<section id="returns-13" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-13">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.Series</td>
+<td>A pd.Series with the standard errors of the estimated regression model.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.solve_ols" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.solve_ols">solve_ols</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.solve_ols(tZX, tZY, solver)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Solve the ordinary least squares problem using the specified solver.</p>
+<section id="parameters-8" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-8">Parameters</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tZX</td>
+<td>np.ndarray</td>
+<td></td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>tZY</td>
+<td>np.ndarray</td>
+<td></td>
+<td><em>required</em></td>
+</tr>
+<tr class="odd">
+<td>solver</td>
+<td>str</td>
+<td></td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-14" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-14">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 73%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>array-like: The solution to the ordinary least squares problem.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="raises" class="level4 doc-section doc-section-raises">
+<h4 class="doc-section doc-section-raises anchored" data-anchor-id="raises">Raises</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 70%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>ValueError: If the specified solver is not supported.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.tidy" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.tidy">tidy</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.tidy(alpha<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Tidy model outputs.</p>
+<p>Return a tidy pd.DataFrame with the point estimates, standard errors, t-statistics, and p-values.</p>
+<section id="parameters-9" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-9">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 12%">
+<col style="width: 75%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>alpha</td>
+<td>Optional[float]</td>
+<td>The significance level for the confidence intervals. If None, computes a 95% confidence interval (<code>alpha = 0.05</code>).</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-15" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-15">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 9%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tidy_df</td>
+<td>pd.DataFrame</td>
+<td>A tidy pd.DataFrame containing the regression results, including point estimates, standard errors, t-statistics, and p-values.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.to_array" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.to_array">to_array</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.to_array()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Convert estimation data frames to np arrays.</p>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.tstat" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.tstat">tstat</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.tstat()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Fitted model t-statistics.</p>
+<section id="returns-16" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-16">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.Series</td>
+<td>A pd.Series with t-statistics of the estimated regression model.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.update" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.update">update</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.update(X_new, y_new, inplace<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Update coefficients for new observations using Sherman-Morrison formula.</p>
+<section id="returns-17" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-17">Returns</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>np.ndarray</td>
+<td>Updated coefficients</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.vcov" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.vcov">vcov</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.vcov(vcov, data<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Compute covariance matrices for an estimated regression model.</p>
+<section id="parameters-10" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-10">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 7%">
+<col style="width: 87%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>vcov</td>
+<td>Union[str, dict[str, str]]</td>
+<td>A string or dictionary specifying the type of variance-covariance matrix to use for inference. If a string, it can be one of “iid”, “hetero”, “HC1”, “HC2”, “HC3”. If a dictionary, it should have the format {“CRV1”: “clustervar”} for CRV1 inference or {“CRV3”: “clustervar”} for CRV3 inference. Note that CRV3 inference is currently not supported for IV estimation.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>data</td>
+<td>Optional[DataFrameType]</td>
+<td>The data used for estimation. If None, tries to fetch the data from the model object. Defaults to None.</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-18" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-18">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Feols</td>
+<td>An instance of class [Feols(/reference/Feols.qmd) with updated inference.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.wald_test" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.wald_test">wald_test</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.wald_test(R<span class="op">=</span><span class="va">None</span>, q<span class="op">=</span><span class="va">None</span>, distribution<span class="op">=</span><span class="st">'F'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Conduct Wald test.</p>
+<p>Compute a Wald test for a linear hypothesis of the form R * β = q. where R is m x k matrix, β is a k x 1 vector of coefficients, and q is m x 1 vector. By default, tests the joint null hypothesis that all coefficients are zero.</p>
+<p>This method producues the following attriutes</p>
+<p>_dfd : int degree of freedom in denominator _dfn : int degree of freedom in numerator _wald_statistic : scalar Wald-statistics computed for hypothesis testing _f_statistic : scalar Wald-statistics(when R is an indentity matrix, and q being zero vector) computed for hypothesis testing _p_value : scalar corresponding p-value for statistics</p>
+<section id="parameters-11" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-11">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 69%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R</td>
+<td>array - like</td>
+<td>The matrix R of the linear hypothesis. If None, defaults to an identity matrix.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>q</td>
+<td>array - like</td>
+<td>The vector q of the linear hypothesis. If None, defaults to a vector of zeros.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>distribution</td>
+<td>str</td>
+<td>The distribution to use for the p-value. Can be either “F” or “chi2”. Defaults to “F”.</td>
+<td><code>'F'</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-19" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-19">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.Series</td>
+<td>A pd.Series with the Wald statistic and p-value.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples-2" class="level4 doc-section doc-section-examples">
+<h4 class="doc-section doc-section-examples anchored" data-anchor-id="examples-2">Examples</h4>
+<p>import numpy as np import pandas as pd</p>
+<p>from pyfixest.estimation.estimation import feols</p>
+<p>data = pd.read_csv(“pyfixest/did/data/df_het.csv”) data = data.iloc[1:3000]</p>
+<p>R = np.array([[1,-1]] ) q = np.array([0.0])</p>
+<p>fml = “dep_var ~ treat” fit = feols(fml, data, vcov={“CRV1”: “year”}, ssc=ssc(adj=False))</p>
+</section>
+</section>
+</section>
+</section>
+<section id="wald-test" class="level1">
+<h1>Wald test</h1>
+<p>fit.wald_test(R=R, q=q, distribution = “chi2”) f_stat = fit._f_statistic p_stat = fit._p_value</p>
+<p>print(f”Python f_stat: {f_stat}“) print(f”Python p_stat: {p_stat}“)</p>
+</section>
+<section id="the-code-above-produces-the-following-results" class="level1">
+<h1>The code above produces the following results :</h1>
+</section>
+<section id="python-f_stat-256.55432910297003" class="level1">
+<h1>Python f_stat: 256.55432910297003</h1>
+</section>
+<section id="python-p_stat-9.67406627744023e-58" class="level1">
+<h1>Python p_stat: 9.67406627744023e-58</h1>
+<section id="pyfixest.estimation.feols_.Feols.wildboottest" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.wildboottest">wildboottest</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.wildboottest(</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    reps</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    cluster<span class="op">=</span><span class="va">None</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    param<span class="op">=</span><span class="va">None</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    weights_type<span class="op">=</span><span class="st">'rademacher'</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    impose_null<span class="op">=</span><span class="va">True</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    bootstrap_type<span class="op">=</span><span class="st">'11'</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    seed<span class="op">=</span><span class="va">None</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    adj<span class="op">=</span><span class="va">True</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    cluster_adj<span class="op">=</span><span class="va">True</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    parallel<span class="op">=</span><span class="va">False</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    return_bootstrapped_t_stats<span class="op">=</span><span class="va">False</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run a wild cluster bootstrap based on an object of type “Feols”.</p>
+<section id="parameters-12" class="level4 doc-section doc-section-parameters">
+<h4 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters-12">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 77%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>reps</td>
+<td>int</td>
+<td>The number of bootstrap iterations to run.</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>cluster</td>
+<td>Union[str, None]</td>
+<td>The variable used for clustering. Defaults to None. If None, then uses the variable specified in the model’s <code>clustervar</code> attribute. If no <code>_clustervar</code> attribute is found, runs a heteroskedasticity- robust bootstrap.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="odd">
+<td>param</td>
+<td>Union[str, None]</td>
+<td>A string of length one, containing the test parameter of interest. Defaults to None.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>weights_type</td>
+<td>str</td>
+<td>The type of bootstrap weights. Options are ‘rademacher’, ‘mammen’, ‘webb’, or ‘normal’. Defaults to ‘rademacher’.</td>
+<td><code>'rademacher'</code></td>
+</tr>
+<tr class="odd">
+<td>impose_null</td>
+<td>bool</td>
+<td>Indicates whether to impose the null hypothesis on the bootstrap DGP. Defaults to True.</td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td>bootstrap_type</td>
+<td>str</td>
+<td>A string of length one to choose the bootstrap type. Options are ‘11’, ‘31’, ‘13’, or ‘33’. Defaults to ‘11’.</td>
+<td><code>'11'</code></td>
+</tr>
+<tr class="odd">
+<td>seed</td>
+<td>Union[int, None]</td>
+<td>An option to provide a random seed. Defaults to None.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>adj</td>
+<td>bool</td>
+<td>Indicates whether to apply a small sample adjustment for the number of observations and covariates. Defaults to True.</td>
+<td><code>True</code></td>
+</tr>
+<tr class="odd">
+<td>cluster_adj</td>
+<td>bool</td>
+<td>Indicates whether to apply a small sample adjustment for the number of clusters. Defaults to True.</td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td>parallel</td>
+<td>bool</td>
+<td>Indicates whether to run the bootstrap in parallel. Defaults to False.</td>
+<td><code>False</code></td>
+</tr>
+<tr class="odd">
+<td>seed</td>
+<td>Union[str, None]</td>
+<td>An option to provide a random seed. Defaults to None.</td>
+<td><code>None</code></td>
+</tr>
+<tr class="even">
+<td>return_bootstrapped_t_stats</td>
+<td>bool, optional:</td>
+<td>If True, the method returns a tuple of the regular output and the bootstrapped t-stats. Defaults to False.</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-20" class="level4 doc-section doc-section-returns">
+<h4 class="doc-section doc-section-returns anchored" data-anchor-id="returns-20">Returns</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 93%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>pd.DataFrame</td>
+<td>A DataFrame with the original, non-bootstrapped t-statistic and bootstrapped p-value, along with the bootstrap type, inference type (HC vs CRV), and whether the null hypothesis was imposed on the bootstrap DGP. If <code>return_bootstrapped_t_stats</code> is True, the method returns a tuple of the regular output and the bootstrapped t-stats.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pyfixest.estimation.feols_.Feols.wls_transform" class="level3">
+<h3 class="anchored" data-anchor-id="pyfixest.estimation.feols_.Feols.wls_transform">wls_transform</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>estimation.feols_.Feols.wls_transform()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Transform model matrices for WLS Estimation.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
