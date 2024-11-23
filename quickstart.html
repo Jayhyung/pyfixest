@@ -285,7 +285,7 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
 <section id="read-sample-data" class="level2">
 <h2 class="anchored" data-anchor-id="read-sample-data">Read Sample Data</h2>
 <p>In a first step, we load the module and some synthetic example data:</p>
-<div id="4b42c791" class="cell" data-execution_count="1">
+<div id="c45077c3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -306,7 +306,7 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
-            <div id="3jTVhx"></div>
+            <div id="iU2fzp"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -330,9 +330,9 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("3jTVhx").appendChild(div);
+                        document.getElementById("iU2fzp").appendChild(div);
                     };
-                    var e = document.getElementById("3jTVhx");
+                    var e = document.getElementById("iU2fzp");
                     e.appendChild(script);
                 })()
             </script>
@@ -340,7 +340,7 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
 </div>
 <div class="cell-output cell-output-display">
 
-            <div id="KRlJGS"></div>
+            <div id="wlRTwT"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -364,9 +364,9 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("KRlJGS").appendChild(div);
+                        document.getElementById("wlRTwT").appendChild(div);
                     };
-                    var e = document.getElementById("KRlJGS");
+                    var e = document.getElementById("wlRTwT");
                     e.appendChild(script);
                 })()
             </script>
@@ -374,7 +374,7 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
 </div>
 <div class="cell-output cell-output-display">
 
-            <div id="QzhCgP"></div>
+            <div id="mqVsHv"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -398,9 +398,9 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("QzhCgP").appendChild(div);
+                        document.getElementById("mqVsHv").appendChild(div);
                     };
-                    var e = document.getElementById("QzhCgP");
+                    var e = document.getElementById("mqVsHv");
                     e.appendChild(script);
                 })()
             </script>
@@ -408,8 +408,8 @@ Y_{it} = \beta X_{it} + \alpha_i + \psi_t + \varepsilon_{it}
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>numpy     : 2.0.2
-pyfixest  : 0.26.2
 pandas    : 2.2.3
+pyfixest  : 0.26.2
 matplotlib: 3.9.2
 </code></pre>
 </div>
@@ -511,7 +511,7 @@ matplotlib: 3.9.2
 </div>
 </div>
 </div>
-<div id="175684c0" class="cell" data-execution_count="2">
+<div id="39ac21da" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -539,7 +539,7 @@ memory usage: 86.1 KB</code></pre>
 <section id="ols-estimation" class="level2">
 <h2 class="anchored" data-anchor-id="ols-estimation">OLS Estimation</h2>
 <p>We are interested in the relation between the dependent variable <code>Y</code> and the independent variables <code>X1</code> using a fixed effect model for <code>group_id</code>. Let’s see how the data looks like:</p>
-<div id="ede75e53" class="cell" data-execution_count="3">
+<div id="b045cc05" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> data.plot(kind<span class="op">=</span><span class="st">"scatter"</span>, x<span class="op">=</span><span class="st">"X1"</span>, y<span class="op">=</span><span class="st">"Y"</span>, c<span class="op">=</span><span class="st">"group_id"</span>, colormap<span class="op">=</span><span class="st">"viridis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -550,7 +550,7 @@ memory usage: 86.1 KB</code></pre>
 </div>
 </div>
 <p>We can estimate a fixed effects regression via the <code>feols()</code> function. <code>feols()</code> has three arguments: a two-sided model formula, the data, and optionally, the type of inference.</p>
-<div id="0adf3a6f" class="cell" data-execution_count="4">
+<div id="04daf768" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> pf.feols(fml<span class="op">=</span><span class="st">"Y ~ X1 | group_id"</span>, data<span class="op">=</span>data, vcov<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -563,7 +563,7 @@ memory usage: 86.1 KB</code></pre>
 <section id="inspecting-model-results" class="level2">
 <h2 class="anchored" data-anchor-id="inspecting-model-results">Inspecting Model Results</h2>
 <p>To inspect the results, we can use a summary function or method:</p>
-<div id="98360284" class="cell" data-execution_count="5">
+<div id="33f18f5c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fit.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###
@@ -581,55 +581,55 @@ RMSE: 2.141 R2: 0.137 R2 Within: 0.126 </code></pre>
 </div>
 </div>
 <p>Or display a formatted regression table:</p>
-<div id="54f4b9d4" class="cell" data-execution_count="6">
+<div id="0887b86d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pf.etable(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<div id="xxlwlsszks" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wxpsserywu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#xxlwlsszks table {
+#wxpsserywu table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#xxlwlsszks thead, tbody, tfoot, tr, td, th { border-style: none; }
+#wxpsserywu thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#xxlwlsszks p { margin: 0; padding: 0; }
- #xxlwlsszks .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #xxlwlsszks .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #xxlwlsszks .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #xxlwlsszks .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #xxlwlsszks .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #xxlwlsszks .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #xxlwlsszks .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #xxlwlsszks .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #xxlwlsszks .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #xxlwlsszks .gt_column_spanner_outer:first-child { padding-left: 0; }
- #xxlwlsszks .gt_column_spanner_outer:last-child { padding-right: 0; }
- #xxlwlsszks .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
- #xxlwlsszks .gt_spanner_row { border-bottom-style: hidden; }
- #xxlwlsszks .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
- #xxlwlsszks .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
- #xxlwlsszks .gt_from_md> :first-child { margin-top: 0; }
- #xxlwlsszks .gt_from_md> :last-child { margin-bottom: 0; }
- #xxlwlsszks .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
- #xxlwlsszks .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #xxlwlsszks .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #xxlwlsszks .gt_row_group_first td { border-top-width: 0.5px; }
- #xxlwlsszks .gt_row_group_first th { border-top-width: 0.5px; }
- #xxlwlsszks .gt_striped { background-color: rgba(128,128,128,0.05); }
- #xxlwlsszks .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
- #xxlwlsszks .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #xxlwlsszks .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #xxlwlsszks .gt_left { text-align: left; }
- #xxlwlsszks .gt_center { text-align: center; }
- #xxlwlsszks .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #xxlwlsszks .gt_font_normal { font-weight: normal; }
- #xxlwlsszks .gt_font_bold { font-weight: bold; }
- #xxlwlsszks .gt_font_italic { font-style: italic; }
- #xxlwlsszks .gt_super { font-size: 65%; }
- #xxlwlsszks .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #xxlwlsszks .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#wxpsserywu p { margin: 0; padding: 0; }
+ #wxpsserywu .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #wxpsserywu .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #wxpsserywu .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #wxpsserywu .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #wxpsserywu .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wxpsserywu .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wxpsserywu .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wxpsserywu .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #wxpsserywu .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #wxpsserywu .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #wxpsserywu .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #wxpsserywu .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #wxpsserywu .gt_spanner_row { border-bottom-style: hidden; }
+ #wxpsserywu .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
+ #wxpsserywu .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
+ #wxpsserywu .gt_from_md> :first-child { margin-top: 0; }
+ #wxpsserywu .gt_from_md> :last-child { margin-bottom: 0; }
+ #wxpsserywu .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
+ #wxpsserywu .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #wxpsserywu .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #wxpsserywu .gt_row_group_first td { border-top-width: 0.5px; }
+ #wxpsserywu .gt_row_group_first th { border-top-width: 0.5px; }
+ #wxpsserywu .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #wxpsserywu .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
+ #wxpsserywu .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #wxpsserywu .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #wxpsserywu .gt_left { text-align: left; }
+ #wxpsserywu .gt_center { text-align: center; }
+ #wxpsserywu .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #wxpsserywu .gt_font_normal { font-weight: normal; }
+ #wxpsserywu .gt_font_bold { font-weight: bold; }
+ #wxpsserywu .gt_font_italic { font-style: italic; }
+ #wxpsserywu .gt_super { font-size: 65%; }
+ #wxpsserywu .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #wxpsserywu .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -692,7 +692,7 @@ RMSE: 2.141 R2: 0.137 R2 Within: 0.126 </code></pre>
 </div>
 </div>
 <p>Alternatively, the <code>.summarize</code> module contains a <code>summary</code> function, which can be applied on instances of regression model objects or lists of regression model objects. For details on how to customize <code>etable()</code>, please take a look at the <a href="https://py-econometrics.github.io/pyfixest/table-layout.html">dedicated vignette</a>.</p>
-<div id="a1617577" class="cell" data-execution_count="7">
+<div id="1e9410bd" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pf.summary(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###
@@ -710,7 +710,7 @@ RMSE: 2.141 R2: 0.137 R2 Within: 0.126 </code></pre>
 </div>
 </div>
 <p>You can access individual elements of the summary via dedicated methods: <code>.tidy()</code> returns a “tidy” <code>pd.DataFrame</code>, <code>.coef()</code> returns estimated parameters, and <code>se()</code> estimated standard errors. Other methods include <code>pvalue()</code>, <code>confint()</code> and <code>tstat()</code>.</p>
-<div id="2ab5afc1" class="cell" data-execution_count="8">
+<div id="916370fe" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fit.tidy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -753,7 +753,7 @@ RMSE: 2.141 R2: 0.137 R2 Within: 0.126 </code></pre>
 </div>
 </div>
 </div>
-<div id="bbe196eb" class="cell" data-execution_count="9">
+<div id="8db9e02d" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fit.coef()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>Coefficient
@@ -761,7 +761,7 @@ X1   -1.019009
 Name: Estimate, dtype: float64</code></pre>
 </div>
 </div>
-<div id="31037e34" class="cell" data-execution_count="10">
+<div id="2f4cb8d7" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fit.se()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>Coefficient
@@ -769,7 +769,7 @@ X1    0.082498
 Name: Std. Error, dtype: float64</code></pre>
 </div>
 </div>
-<div id="7db375f8" class="cell" data-execution_count="11">
+<div id="9c6a62ac" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fit.tstat()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Coefficient
@@ -777,7 +777,7 @@ X1   -12.351897
 Name: t value, dtype: float64</code></pre>
 </div>
 </div>
-<div id="71674563" class="cell" data-execution_count="12">
+<div id="8caefcae" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fit.confint()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
@@ -804,17 +804,17 @@ Name: t value, dtype: float64</code></pre>
 </div>
 </div>
 <p>Last, model results can be visualized via dedicated methods for plotting:</p>
-<div id="e0719564" class="cell" data-execution_count="13">
+<div id="a3055547" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fit.coefplot()</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or pf.coefplot([fit])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-   <div id="3QW5NV"></div>
+   <div id="jnnpUR"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
    (function() {
    // ----------
    
-   var containerDiv = document.getElementById("3QW5NV");
+   var containerDiv = document.getElementById("jnnpUR");
    var observer = new ResizeObserver(function(entries) {
        for (let entry of entries) {
            var width = containerDiv.clientWidth
@@ -970,7 +970,7 @@ Name: t value, dtype: float64</code></pre>
 <section id="how-to-interpret-the-results" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-interpret-the-results">How to interpret the results?</h2>
 <p>Let’s have a quick d-tour on the intuition behind fixed effects models using the example above. To do so, let us begin by comparing it with a simple OLS model.</p>
-<div id="98a2ed87" class="cell" data-execution_count="14">
+<div id="0f50681d" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fit_simple <span class="op">=</span> pf.feols(<span class="st">"Y ~ X1"</span>, data<span class="op">=</span>data, vcov<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>fit_simple.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -991,55 +991,55 @@ RMSE: 2.158 R2: 0.123 </code></pre>
 </div>
 </div>
 <p>We can compare both models side by side in a regression table:</p>
-<div id="719ca98a" class="cell" data-execution_count="15">
+<div id="f9801a69" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pf.etable([fit, fit_simple])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<div id="cuikvxdnrm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mkxyrvsluf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#cuikvxdnrm table {
+#mkxyrvsluf table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#cuikvxdnrm thead, tbody, tfoot, tr, td, th { border-style: none; }
+#mkxyrvsluf thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#cuikvxdnrm p { margin: 0; padding: 0; }
- #cuikvxdnrm .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #cuikvxdnrm .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #cuikvxdnrm .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #cuikvxdnrm .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #cuikvxdnrm .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cuikvxdnrm .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #cuikvxdnrm .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cuikvxdnrm .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #cuikvxdnrm .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #cuikvxdnrm .gt_column_spanner_outer:first-child { padding-left: 0; }
- #cuikvxdnrm .gt_column_spanner_outer:last-child { padding-right: 0; }
- #cuikvxdnrm .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
- #cuikvxdnrm .gt_spanner_row { border-bottom-style: hidden; }
- #cuikvxdnrm .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
- #cuikvxdnrm .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
- #cuikvxdnrm .gt_from_md> :first-child { margin-top: 0; }
- #cuikvxdnrm .gt_from_md> :last-child { margin-bottom: 0; }
- #cuikvxdnrm .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
- #cuikvxdnrm .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #cuikvxdnrm .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #cuikvxdnrm .gt_row_group_first td { border-top-width: 0.5px; }
- #cuikvxdnrm .gt_row_group_first th { border-top-width: 0.5px; }
- #cuikvxdnrm .gt_striped { background-color: rgba(128,128,128,0.05); }
- #cuikvxdnrm .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
- #cuikvxdnrm .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #cuikvxdnrm .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #cuikvxdnrm .gt_left { text-align: left; }
- #cuikvxdnrm .gt_center { text-align: center; }
- #cuikvxdnrm .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #cuikvxdnrm .gt_font_normal { font-weight: normal; }
- #cuikvxdnrm .gt_font_bold { font-weight: bold; }
- #cuikvxdnrm .gt_font_italic { font-style: italic; }
- #cuikvxdnrm .gt_super { font-size: 65%; }
- #cuikvxdnrm .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #cuikvxdnrm .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#mkxyrvsluf p { margin: 0; padding: 0; }
+ #mkxyrvsluf .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #mkxyrvsluf .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #mkxyrvsluf .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #mkxyrvsluf .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #mkxyrvsluf .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #mkxyrvsluf .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #mkxyrvsluf .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #mkxyrvsluf .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #mkxyrvsluf .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #mkxyrvsluf .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #mkxyrvsluf .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #mkxyrvsluf .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #mkxyrvsluf .gt_spanner_row { border-bottom-style: hidden; }
+ #mkxyrvsluf .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
+ #mkxyrvsluf .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
+ #mkxyrvsluf .gt_from_md> :first-child { margin-top: 0; }
+ #mkxyrvsluf .gt_from_md> :last-child { margin-bottom: 0; }
+ #mkxyrvsluf .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
+ #mkxyrvsluf .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #mkxyrvsluf .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #mkxyrvsluf .gt_row_group_first td { border-top-width: 0.5px; }
+ #mkxyrvsluf .gt_row_group_first th { border-top-width: 0.5px; }
+ #mkxyrvsluf .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #mkxyrvsluf .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
+ #mkxyrvsluf .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #mkxyrvsluf .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #mkxyrvsluf .gt_left { text-align: left; }
+ #mkxyrvsluf .gt_center { text-align: center; }
+ #mkxyrvsluf .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #mkxyrvsluf .gt_font_normal { font-weight: normal; }
+ #mkxyrvsluf .gt_font_bold { font-weight: bold; }
+ #mkxyrvsluf .gt_font_italic { font-style: italic; }
+ #mkxyrvsluf .gt_super { font-size: 65%; }
+ #mkxyrvsluf .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #mkxyrvsluf .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -1116,7 +1116,7 @@ RMSE: 2.158 R2: 0.123 </code></pre>
 </div>
 </div>
 <p>We see that the <code>X1</code> coefficient is <code>-1.019</code>, which is less than the value from the OLS model in column (2). Where is the difference coming from? Well, in the fixed effect model we are interested in controlling for the feature <code>group_id</code>. One possibility to do this is by adding a simple dummy variable for each level of <code>group_id</code>.</p>
-<div id="b85d850d" class="cell" data-execution_count="16">
+<div id="501bdc03" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fit_dummy <span class="op">=</span> pf.feols(<span class="st">"Y ~ X1 + C(group_id) "</span>, data<span class="op">=</span>data, vcov<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fit_dummy.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1155,7 +1155,7 @@ RMSE: 2.141 R2: 0.137 </code></pre>
 </div>
 </div>
 <p>This is does not scale well! Imagine you have 1000 different levels of <code>group_id</code>. You would need to add 1000 dummy variables to your model. This is where fixed effect models come in handy. They allow you to control for these fixed effects without adding all these dummy variables. The way to do it is by a <em>demeaning procedure</em>. The idea is to subtract the average value of each level of <code>group_id</code> from the respective observations. This way, we control for the fixed effects without adding all these dummy variables. Let’s try to do this manually:</p>
-<div id="d7974bd9" class="cell" data-execution_count="17">
+<div id="1d043342" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _demean_column(df: pd.DataFrame, column: <span class="bu">str</span>, by: <span class="bu">str</span>) <span class="op">-&gt;</span> pd.Series:</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df[column] <span class="op">-</span> df.groupby(by)[column].transform(<span class="st">"mean"</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1192,13 +1192,13 @@ RMSE: 2.141 R2: 0.126 </code></pre>
 <h2 class="anchored" data-anchor-id="updating-regression-coefficients">Updating Regression Coefficients</h2>
 <p>You can update the coefficients of a model object via the <code>update()</code> method, which may be useful in an online learning setting where data arrives sequentially.</p>
 <p>To see this in action, let us first fit a model on a subset of the data:</p>
-<div id="030b3332" class="cell" data-execution_count="18">
+<div id="cb11177c" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>data_subsample <span class="op">=</span> data.sample(frac<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> pf.feols(<span class="st">"Y ~ X1 + X2"</span>, data<span class="op">=</span>data_subsample)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># current coefficient vector</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>m._beta_hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>array([ 1.00684696, -1.01402406, -0.15597008])</code></pre>
+<pre><code>array([ 1.1216564 , -1.12073266, -0.18247094])</code></pre>
 </div>
 </div>
 <p>Then sample 5 new observations and update the model with the new data. The update rule is</p>
@@ -1206,7 +1206,7 @@ RMSE: 2.141 R2: 0.126 </code></pre>
 \hat{\beta}_{n+1} = \hat{\beta}_n + (X_{n+1}' X_{n+1})^{-1} x_{n+1} + (y_{n+1} - x_{n+1} \hat{\beta}_n)
 \]</span></p>
 <p>for a new observation <span class="math inline">\((x_{n+1}, y_{n+1})\)</span>.</p>
-<div id="64665006" class="cell" data-execution_count="19">
+<div id="b1e810f4" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>new_points_id <span class="op">=</span> np.random.choice(<span class="bu">list</span>(<span class="bu">set</span>(data.index) <span class="op">-</span> <span class="bu">set</span>(data_subsample.index)), <span class="dv">5</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>X_new, y_new <span class="op">=</span> (</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    np.c_[np.ones(<span class="bu">len</span>(new_points_id)), data.loc[new_points_id][[<span class="st">"X1"</span>, <span class="st">"X2"</span>]].values],</span>
@@ -1214,16 +1214,16 @@ RMSE: 2.141 R2: 0.126 </code></pre>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>m.update(X_new, y_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>array([ 1.00591133, -1.00849644, -0.15453307])</code></pre>
+<pre><code>array([ 1.12911678, -1.12566079, -0.18372459])</code></pre>
 </div>
 </div>
 <p>We verify that we get the same results if we had estimated the model on the appended data.</p>
-<div id="6c0a0a23" class="cell" data-execution_count="20">
+<div id="e48e9f2a" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pf.feols(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Y ~ X1 + X2"</span>, data<span class="op">=</span>data.loc[data_subsample.index.append(pd.Index(new_points_id))]</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>).coef().values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>array([ 1.00591133, -1.00849644, -0.15453307])</code></pre>
+<pre><code>array([ 1.12911678, -1.12566079, -0.18372459])</code></pre>
 </div>
 </div>
 </section>
@@ -1239,7 +1239,7 @@ RMSE: 2.141 R2: 0.126 </code></pre>
 <li><code>CRV1</code> and <code>CRV3</code>: cluster robust standard errors according to Cameron, Gelbach, and Miller (2011). See <a href="https://cameron.econ.ucdavis.edu/research/Cameron_Miller_JHR_2015_February.pdf">A Practitioner’s Guide to Cluster-Robust Inference</a>. For <code>CRV1</code> and <code>CRV3</code> one should pass a dictionaty of the form <code>{"CRV1": "clustervar"}</code>.</li>
 </ul>
 <p>Inference can be adjusted “on-the-fly” via the <code>.vcov()</code> method:</p>
-<div id="dc765136" class="cell" data-execution_count="21">
+<div id="c9d7aa8d" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fit.vcov({<span class="st">"CRV1"</span>: <span class="st">"group_id + f2"</span>}).summary()</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>fit.vcov({<span class="st">"CRV3"</span>: <span class="st">"group_id"</span>}).summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1274,7 +1274,7 @@ RMSE: 2.141 R2: 0.137 R2 Within: 0.126 </code></pre>
 <section id="inference-via-the-wild-bootstrap" class="level2">
 <h2 class="anchored" data-anchor-id="inference-via-the-wild-bootstrap">Inference via the Wild Bootstrap</h2>
 <p>It is also possible to run a wild (cluster) bootstrap after estimation (via the <a href="https://github.com/py-econometrics/wildboottest">wildboottest module</a>, see <a href="http://qed.econ.queensu.ca/pub/faculty/mackinnon/working-papers/qed_wp_1485.pdf">MacKinnon, J. G., Nielsen, M. Ø., &amp; Webb, M. D. (2023). Fast and reliable jackknife and bootstrap methods for cluster-robust inference. Journal of Applied Econometrics, 38(5), 671–694.</a>):</p>
-<div id="33e4b54f" class="cell" data-execution_count="22">
+<div id="8412292b" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="op">=</span> pf.feols(fml<span class="op">=</span><span class="st">"Y ~ X1"</span>, data<span class="op">=</span>data, vcov<span class="op">=</span>{<span class="st">"CRV1"</span>: <span class="st">"group_id"</span>})</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>fit2.wildboottest(param<span class="op">=</span><span class="st">"X1"</span>, reps<span class="op">=</span><span class="dv">999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
@@ -1291,7 +1291,7 @@ dtype: object</code></pre>
 <section id="the-causal-cluster-variance-estimator" class="level2">
 <h2 class="anchored" data-anchor-id="the-causal-cluster-variance-estimator">The Causal Cluster Variance Estimator</h2>
 <p>Additionally, <code>PyFixest</code> supports the causal cluster variance estimator following <a href="https://academic.oup.com/qje/article/138/1/1/6750017">Abadie et al.&nbsp;(2023)</a>. Let’s look into it with another data set:</p>
-<div id="25db81ca" class="cell" data-execution_count="23">
+<div id="025308b5" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_stata(<span class="st">"http://www.damianclarke.net/stata/census2000_5pc.dta"</span>)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1357,7 +1357,7 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="4f811a47" class="cell" data-execution_count="24">
+<div id="5e481778" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> df.plot.hist(column<span class="op">=</span>[<span class="st">"ln_earnings"</span>], by<span class="op">=</span>[<span class="st">"college"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1368,7 +1368,7 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>Now we can estimate the model <code>ln_earnings ~ college</code> where we cluster the standard errors at the state level:</p>
-<div id="917cc98f" class="cell" data-execution_count="25">
+<div id="748d75ad" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>fit3 <span class="op">=</span> pf.feols(<span class="st">"ln_earnings ~ college"</span>, vcov<span class="op">=</span>{<span class="st">"CRV1"</span>: <span class="st">"state"</span>}, data<span class="op">=</span>df)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>fit3.ccv(treatment<span class="op">=</span><span class="st">"college"</span>, pk<span class="op">=</span><span class="fl">0.05</span>, n_splits<span class="op">=</span><span class="dv">2</span>, seed<span class="op">=</span><span class="dv">929</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
@@ -1416,7 +1416,7 @@ dtype: object</code></pre>
 <section id="randomization-inference" class="level2">
 <h2 class="anchored" data-anchor-id="randomization-inference">Randomization Inference</h2>
 <p>You can also conduct inference via randomization inference <a href="https://hesss.org/ritest.pdf">(see Heß, Stata Journal 2017)</a>. <code>PyFixest</code> supports random and cluster random sampling.</p>
-<div id="0d58cedc" class="cell" data-execution_count="26">
+<div id="e0369c64" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>fit2.ritest(resampvar<span class="op">=</span><span class="st">"X1=0"</span>, reps<span class="op">=</span><span class="dv">1000</span>, cluster<span class="op">=</span><span class="st">"group_id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>H0                                     X1=0
@@ -1434,7 +1434,7 @@ dtype: object</code></pre>
 <section id="multiple-testing-corrections-bonferroni-and-romano-wolf" class="level2">
 <h2 class="anchored" data-anchor-id="multiple-testing-corrections-bonferroni-and-romano-wolf">Multiple Testing Corrections: Bonferroni and Romano-Wolf</h2>
 <p>To correct for multiple testing, p-values can be adjusted via either the <a href="https://en.wikipedia.org/wiki/Bonferroni_correction">Bonferroni</a> or the method by Romano and Wolf (2005), see for example <a href="https://docs.iza.org/dp12845.pdf">The Romano-Wolf Multiple Hypothesis Correction in Stata</a>.</p>
-<div id="3e012ab6" class="cell" data-execution_count="27">
+<div id="8a1641c4" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pf.bonferroni([fit, fit2], param<span class="op">=</span><span class="st">"X1"</span>).<span class="bu">round</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <div>
@@ -1490,7 +1490,7 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="10440951" class="cell" data-execution_count="28">
+<div id="421248c7" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>pf.rwolf([fit, fit2], param<span class="op">=</span><span class="st">"X1"</span>, reps<span class="op">=</span><span class="dv">9999</span>, seed<span class="op">=</span><span class="dv">1234</span>).<span class="bu">round</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
@@ -1550,7 +1550,7 @@ dtype: object</code></pre>
 <section id="joint-confidence-intervals" class="level2">
 <h2 class="anchored" data-anchor-id="joint-confidence-intervals">Joint Confidence Intervals</h2>
 <p>Simultaneous confidence bands for a vector of parameters can be computed via the <code>joint_confint()</code> method. See <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jae.2656">Simultaneous confidence bands: Theory, implementation, and an application to SVARs</a> for background.</p>
-<div id="23e0dd07" class="cell" data-execution_count="29">
+<div id="5815e844" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fit_ci <span class="op">=</span> pf.feols(<span class="st">"Y ~ X1+ C(f1)"</span>, data<span class="op">=</span>data)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>fit_ci.confint(joint<span class="op">=</span><span class="va">True</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -1568,28 +1568,28 @@ dtype: object</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Intercept</td>
-<td>-0.423541</td>
-<td>1.401452</td>
+<td>-0.421139</td>
+<td>1.399050</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">X1</td>
-<td>-1.160177</td>
-<td>-0.738705</td>
+<td>-1.159622</td>
+<td>-0.739260</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">C(f1)[T.1.0]</td>
-<td>1.387371</td>
-<td>3.777927</td>
+<td>1.390518</td>
+<td>3.774781</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">C(f1)[T.2.0]</td>
-<td>-2.835575</td>
-<td>-0.328293</td>
+<td>-2.832275</td>
+<td>-0.331593</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">C(f1)[T.3.0]</td>
-<td>-1.604939</td>
-<td>0.980272</td>
+<td>-1.601537</td>
+<td>0.976869</td>
 </tr>
 </tbody>
 </table>
@@ -1602,7 +1602,7 @@ dtype: object</code></pre>
 <section id="panel-data-example-causal-inference-for-the-brave-and-true" class="level1">
 <h1>Panel Data Example: Causal Inference for the Brave and True</h1>
 <p>In this example we replicate the results of the great (freely available reference!) <a href="https://matheusfacure.github.io/python-causality-handbook/14-Panel-Data-and-Fixed-Effects.html">Causal Inference for the Brave and True - Chapter 14</a>. Please refer to the original text for a detailed explanation of the data.</p>
-<div id="2c7d7145" class="cell" data-execution_count="30">
+<div id="a70854a3" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/bashtage/linearmodels/main/linearmodels/datasets/wage_panel/wage_panel.csv.bz2"</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>data_df <span class="op">=</span> pd.read_csv(data_path)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1712,7 +1712,7 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>The objective is to estimate the effect of the variable <code>married</code> on the variable <code>lwage</code> using a fixed effect model on the entity variable <code>nr</code> and the time variable <code>year</code>.</p>
-<div id="458bf014" class="cell" data-execution_count="31">
+<div id="27849778" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>panel_fit <span class="op">=</span> pf.feols(</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    fml<span class="op">=</span><span class="st">"lwage ~ expersq + union + married + hours | nr + year"</span>,</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data_df,</span>
@@ -1721,52 +1721,52 @@ dtype: object</code></pre>
 <span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>pf.etable(panel_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
-<div id="gogqexkmjr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="yinvaawzzj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#gogqexkmjr table {
+#yinvaawzzj table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#gogqexkmjr thead, tbody, tfoot, tr, td, th { border-style: none; }
+#yinvaawzzj thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#gogqexkmjr p { margin: 0; padding: 0; }
- #gogqexkmjr .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #gogqexkmjr .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #gogqexkmjr .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #gogqexkmjr .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #gogqexkmjr .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #gogqexkmjr .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #gogqexkmjr .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #gogqexkmjr .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #gogqexkmjr .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #gogqexkmjr .gt_column_spanner_outer:first-child { padding-left: 0; }
- #gogqexkmjr .gt_column_spanner_outer:last-child { padding-right: 0; }
- #gogqexkmjr .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
- #gogqexkmjr .gt_spanner_row { border-bottom-style: hidden; }
- #gogqexkmjr .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
- #gogqexkmjr .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
- #gogqexkmjr .gt_from_md> :first-child { margin-top: 0; }
- #gogqexkmjr .gt_from_md> :last-child { margin-bottom: 0; }
- #gogqexkmjr .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
- #gogqexkmjr .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #gogqexkmjr .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #gogqexkmjr .gt_row_group_first td { border-top-width: 0.5px; }
- #gogqexkmjr .gt_row_group_first th { border-top-width: 0.5px; }
- #gogqexkmjr .gt_striped { background-color: rgba(128,128,128,0.05); }
- #gogqexkmjr .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
- #gogqexkmjr .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #gogqexkmjr .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #gogqexkmjr .gt_left { text-align: left; }
- #gogqexkmjr .gt_center { text-align: center; }
- #gogqexkmjr .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #gogqexkmjr .gt_font_normal { font-weight: normal; }
- #gogqexkmjr .gt_font_bold { font-weight: bold; }
- #gogqexkmjr .gt_font_italic { font-style: italic; }
- #gogqexkmjr .gt_super { font-size: 65%; }
- #gogqexkmjr .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #gogqexkmjr .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#yinvaawzzj p { margin: 0; padding: 0; }
+ #yinvaawzzj .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #yinvaawzzj .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #yinvaawzzj .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #yinvaawzzj .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #yinvaawzzj .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #yinvaawzzj .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #yinvaawzzj .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #yinvaawzzj .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #yinvaawzzj .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #yinvaawzzj .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #yinvaawzzj .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #yinvaawzzj .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #yinvaawzzj .gt_spanner_row { border-bottom-style: hidden; }
+ #yinvaawzzj .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
+ #yinvaawzzj .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
+ #yinvaawzzj .gt_from_md> :first-child { margin-top: 0; }
+ #yinvaawzzj .gt_from_md> :last-child { margin-bottom: 0; }
+ #yinvaawzzj .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
+ #yinvaawzzj .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #yinvaawzzj .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #yinvaawzzj .gt_row_group_first td { border-top-width: 0.5px; }
+ #yinvaawzzj .gt_row_group_first th { border-top-width: 0.5px; }
+ #yinvaawzzj .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #yinvaawzzj .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
+ #yinvaawzzj .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #yinvaawzzj .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #yinvaawzzj .gt_left { text-align: left; }
+ #yinvaawzzj .gt_center { text-align: center; }
+ #yinvaawzzj .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #yinvaawzzj .gt_font_normal { font-weight: normal; }
+ #yinvaawzzj .gt_font_bold { font-weight: bold; }
+ #yinvaawzzj .gt_font_italic { font-style: italic; }
+ #yinvaawzzj .gt_super { font-size: 65%; }
+ #yinvaawzzj .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #yinvaawzzj .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -1812,11 +1812,11 @@ dtype: object</code></pre>
 <td colspan="2" class="gt_group_heading" data-quarto-table-cell-role="th">fe</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">nr</td>
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">year</td>
 <td class="gt_row gt_center">x</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">year</td>
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">nr</td>
 <td class="gt_row gt_center">x</td>
 </tr>
 <tr class="odd gt_group_heading_row">
@@ -1853,7 +1853,7 @@ dtype: object</code></pre>
 <h1>Instrumental Variables (IV) Estimation</h1>
 <p>It is also possible to estimate <a href="https://en.wikipedia.org/wiki/Instrumental_variables_estimation">instrumental variable models</a> with <em>one</em> endogenous variable and (potentially multiple) instruments.</p>
 <p>In general, the syntax for IV is <code>depvar ~ exog.vars | fixef effects | endog.vars ~ instruments</code>.</p>
-<div id="6ade48a6" class="cell" data-execution_count="32">
+<div id="a5e86ff2" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>iv_fit <span class="op">=</span> pf.feols(fml<span class="op">=</span><span class="st">"Y2 ~ 1 | f1 + f2 | X1 ~ Z1 + Z2"</span>, data<span class="op">=</span>data)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>iv_fit.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1872,7 +1872,7 @@ Observations:  998
 </div>
 </div>
 <p>If the model does not contain any fixed effects, just drop the second part of the formula above:</p>
-<div id="1a2cf9ef" class="cell" data-execution_count="33">
+<div id="9d714450" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>pf.feols(fml<span class="op">=</span><span class="st">"Y ~ 1 | X1 ~ Z1 + Z2"</span>, data<span class="op">=</span>data).summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###
@@ -1891,55 +1891,55 @@ Observations:  998
 </div>
 </div>
 <p>You can access the first stage regression object via the <code>._model_1st_stage</code> attribute:</p>
-<div id="effe0227" class="cell" data-execution_count="34">
+<div id="5d0cb4cf" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pf.etable([iv_fit._model_1st_stage, iv_fit])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
-<div id="cfzgugmtfm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xpvkzyrhbh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#cfzgugmtfm table {
+#xpvkzyrhbh table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#cfzgugmtfm thead, tbody, tfoot, tr, td, th { border-style: none; }
+#xpvkzyrhbh thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#cfzgugmtfm p { margin: 0; padding: 0; }
- #cfzgugmtfm .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #cfzgugmtfm .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #cfzgugmtfm .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #cfzgugmtfm .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #cfzgugmtfm .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cfzgugmtfm .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #cfzgugmtfm .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cfzgugmtfm .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #cfzgugmtfm .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #cfzgugmtfm .gt_column_spanner_outer:first-child { padding-left: 0; }
- #cfzgugmtfm .gt_column_spanner_outer:last-child { padding-right: 0; }
- #cfzgugmtfm .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
- #cfzgugmtfm .gt_spanner_row { border-bottom-style: hidden; }
- #cfzgugmtfm .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
- #cfzgugmtfm .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
- #cfzgugmtfm .gt_from_md> :first-child { margin-top: 0; }
- #cfzgugmtfm .gt_from_md> :last-child { margin-bottom: 0; }
- #cfzgugmtfm .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
- #cfzgugmtfm .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #cfzgugmtfm .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #cfzgugmtfm .gt_row_group_first td { border-top-width: 0.5px; }
- #cfzgugmtfm .gt_row_group_first th { border-top-width: 0.5px; }
- #cfzgugmtfm .gt_striped { background-color: rgba(128,128,128,0.05); }
- #cfzgugmtfm .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
- #cfzgugmtfm .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #cfzgugmtfm .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #cfzgugmtfm .gt_left { text-align: left; }
- #cfzgugmtfm .gt_center { text-align: center; }
- #cfzgugmtfm .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #cfzgugmtfm .gt_font_normal { font-weight: normal; }
- #cfzgugmtfm .gt_font_bold { font-weight: bold; }
- #cfzgugmtfm .gt_font_italic { font-style: italic; }
- #cfzgugmtfm .gt_super { font-size: 65%; }
- #cfzgugmtfm .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #cfzgugmtfm .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#xpvkzyrhbh p { margin: 0; padding: 0; }
+ #xpvkzyrhbh .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #xpvkzyrhbh .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #xpvkzyrhbh .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #xpvkzyrhbh .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #xpvkzyrhbh .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #xpvkzyrhbh .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #xpvkzyrhbh .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #xpvkzyrhbh .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #xpvkzyrhbh .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #xpvkzyrhbh .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #xpvkzyrhbh .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #xpvkzyrhbh .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #xpvkzyrhbh .gt_spanner_row { border-bottom-style: hidden; }
+ #xpvkzyrhbh .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
+ #xpvkzyrhbh .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
+ #xpvkzyrhbh .gt_from_md> :first-child { margin-top: 0; }
+ #xpvkzyrhbh .gt_from_md> :last-child { margin-bottom: 0; }
+ #xpvkzyrhbh .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
+ #xpvkzyrhbh .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #xpvkzyrhbh .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #xpvkzyrhbh .gt_row_group_first td { border-top-width: 0.5px; }
+ #xpvkzyrhbh .gt_row_group_first th { border-top-width: 0.5px; }
+ #xpvkzyrhbh .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #xpvkzyrhbh .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
+ #xpvkzyrhbh .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #xpvkzyrhbh .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #xpvkzyrhbh .gt_left { text-align: left; }
+ #xpvkzyrhbh .gt_center { text-align: center; }
+ #xpvkzyrhbh .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #xpvkzyrhbh .gt_font_normal { font-weight: normal; }
+ #xpvkzyrhbh .gt_font_bold { font-weight: bold; }
+ #xpvkzyrhbh .gt_font_italic { font-style: italic; }
+ #xpvkzyrhbh .gt_super { font-size: 65%; }
+ #xpvkzyrhbh .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #xpvkzyrhbh .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -1986,12 +1986,12 @@ Observations:  998
 <td colspan="3" class="gt_group_heading" data-quarto-table-cell-role="th">fe</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">f2</td>
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">f1</td>
 <td class="gt_row gt_center">x</td>
 <td class="gt_row gt_center">x</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">f1</td>
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">f2</td>
 <td class="gt_row gt_center">x</td>
 <td class="gt_row gt_center">x</td>
 </tr>
@@ -2027,14 +2027,14 @@ Observations:  998
 </div>
 </div>
 <p>You can access the F-Statistic of the first stage via the <code>_f_stat_1st_stage</code> attribute:</p>
-<div id="9138f9ad" class="cell" data-execution_count="35">
+<div id="c5985893" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>iv_fit._f_stat_1st_stage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>np.float64(574.7680894885983)</code></pre>
 </div>
 </div>
 <p>Via the <code>IV_Diag</code> method, you can compute additional IV Diagnostics, as the <strong>effective F-statistic</strong> following Olea &amp; Pflueger (2013):</p>
-<div id="2ebc7e26" class="cell" data-execution_count="36">
+<div id="97d2e2d3" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>iv_fit.IV_Diag()</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>iv_fit._eff_F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
@@ -2046,7 +2046,7 @@ Observations:  998
 <section id="poisson-regression" class="level1">
 <h1>Poisson Regression</h1>
 <p>It is possible to estimate Poisson Regressions (for example, to model count data). We can showcase this feature with another synthetic data set.</p>
-<div id="8fc6ea23" class="cell" data-execution_count="37">
+<div id="c63c0ef2" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>pois_data <span class="op">=</span> pf.get_data(model<span class="op">=</span><span class="st">"Fepois"</span>)</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pois_data.plot(</span>
@@ -2065,7 +2065,7 @@ Observations:  998
 </div>
 </div>
 </div>
-<div id="3a525b19" class="cell" data-execution_count="38">
+<div id="a01faba7" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>pois_fit <span class="op">=</span> pf.fepois(fml<span class="op">=</span><span class="st">"Y ~ X1 | group_id"</span>, data<span class="op">=</span>pois_data, vcov<span class="op">=</span>{<span class="st">"CRV1"</span>: <span class="st">"group_id"</span>})</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>pois_fit.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2087,11 +2087,11 @@ Deviance: 1126.202 </code></pre>
 <section id="tests-of-multiple-hypothesis-wald-tests" class="level1">
 <h1>Tests of Multiple Hypothesis / Wald Tests</h1>
 <p>You can test multiple hypotheses simultaneously via the <code>wald_test</code> method.</p>
-<div id="2e555c24" class="cell" data-execution_count="39">
+<div id="9d7c62d2" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> pf.feols(<span class="st">"Y ~ X1 + X2 | f1"</span>, data<span class="op">=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example, to test the joint null hypothesis of <span class="math inline">\(X_{1} = 0\)</span> and <span class="math inline">\(X_{2} = 0\)</span> vs the alternative that <span class="math inline">\(X_{1} \neq 0\)</span> or <span class="math inline">\(X_{2} \neq 0\)</span>, we would run</p>
-<div id="b1fdb5d8" class="cell" data-execution_count="40">
+<div id="7a951b32" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>fit.wald_test(R<span class="op">=</span>np.eye(<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>statistic    1.464780e+02
@@ -2100,12 +2100,12 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Alternatively, suppose we wanted to test a more complicated joint null hypothesis: <span class="math inline">\(X_{1} + 2X_{2} = 2.0\)</span> and <span class="math inline">\(X_{2} = 1.0\)</span>. To do so, we would define <span class="math inline">\(R\)</span> and <span class="math inline">\(q\)</span> as</p>
-<div id="f39e6e57" class="cell" data-execution_count="41">
+<div id="8b40b3eb" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>R1 <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">0</span>, <span class="dv">1</span>]])</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>q1 <span class="op">=</span> np.array([<span class="fl">2.0</span>, <span class="fl">1.0</span>])</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>fit.wald_test(R<span class="op">=</span>R1, q<span class="op">=</span>q1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/home/runner/work/pyfixest/pyfixest/pyfixest/estimation/feols_.py:1058: UserWarning: Distribution changed to chi2, as R is not an identity matrix and q is not a zero vector.
+<pre><code>/home/runner/work/pyfixest/pyfixest/pyfixest/estimation/feols_.py:1056: UserWarning: Distribution changed to chi2, as R is not an identity matrix and q is not a zero vector.
   warnings.warn(</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="41">
@@ -2128,62 +2128,62 @@ dtype: float64</code></pre>
 </blockquote>
 <p>Additionally, we support <code>split</code> and <code>fsplit</code> function arguments. &gt; - <code>split</code> allows to split a sample by a given variable. If specified, <code>pf.feols()</code> and <code>pf.fepois()</code> will loop through all resulting sample splits. &gt; - <code>fsplit</code> works just as <code>split</code>, but fits the model on the full sample as well.</p>
 <p>If multiple regression syntax is used, <code>feols()</code> and <code>fepois</code> returns an instance of a <code>FixestMulti</code> object, which essentially consists of a dicionary of <code>Fepois</code> or <a href="./reference/Feols.qmd">Feols</a> instances.</p>
-<div id="9d09686a" class="cell" data-execution_count="42">
+<div id="9b0fca39" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>multi_fit <span class="op">=</span> pf.feols(fml<span class="op">=</span><span class="st">"Y ~ X1 | csw0(f1, f2)"</span>, data<span class="op">=</span>data, vcov<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>multi_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
-<pre><code>&lt;pyfixest.estimation.FixestMulti_.FixestMulti at 0x7f3afbd3bce0&gt;</code></pre>
+<pre><code>&lt;pyfixest.estimation.FixestMulti_.FixestMulti at 0x7f0c5b9c8440&gt;</code></pre>
 </div>
 </div>
-<div id="6658d1e4" class="cell" data-execution_count="43">
+<div id="63778e55" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>multi_fit.etable()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
-<div id="puuamtnqfq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wginunvykr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#puuamtnqfq table {
+#wginunvykr table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#puuamtnqfq thead, tbody, tfoot, tr, td, th { border-style: none; }
+#wginunvykr thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#puuamtnqfq p { margin: 0; padding: 0; }
- #puuamtnqfq .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #puuamtnqfq .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #puuamtnqfq .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #puuamtnqfq .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #puuamtnqfq .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #puuamtnqfq .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #puuamtnqfq .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #puuamtnqfq .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #puuamtnqfq .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #puuamtnqfq .gt_column_spanner_outer:first-child { padding-left: 0; }
- #puuamtnqfq .gt_column_spanner_outer:last-child { padding-right: 0; }
- #puuamtnqfq .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
- #puuamtnqfq .gt_spanner_row { border-bottom-style: hidden; }
- #puuamtnqfq .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
- #puuamtnqfq .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
- #puuamtnqfq .gt_from_md> :first-child { margin-top: 0; }
- #puuamtnqfq .gt_from_md> :last-child { margin-bottom: 0; }
- #puuamtnqfq .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
- #puuamtnqfq .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #puuamtnqfq .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #puuamtnqfq .gt_row_group_first td { border-top-width: 0.5px; }
- #puuamtnqfq .gt_row_group_first th { border-top-width: 0.5px; }
- #puuamtnqfq .gt_striped { background-color: rgba(128,128,128,0.05); }
- #puuamtnqfq .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
- #puuamtnqfq .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #puuamtnqfq .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #puuamtnqfq .gt_left { text-align: left; }
- #puuamtnqfq .gt_center { text-align: center; }
- #puuamtnqfq .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #puuamtnqfq .gt_font_normal { font-weight: normal; }
- #puuamtnqfq .gt_font_bold { font-weight: bold; }
- #puuamtnqfq .gt_font_italic { font-style: italic; }
- #puuamtnqfq .gt_super { font-size: 65%; }
- #puuamtnqfq .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #puuamtnqfq .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#wginunvykr p { margin: 0; padding: 0; }
+ #wginunvykr .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #wginunvykr .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #wginunvykr .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #wginunvykr .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #wginunvykr .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wginunvykr .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wginunvykr .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wginunvykr .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #wginunvykr .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #wginunvykr .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #wginunvykr .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #wginunvykr .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #wginunvykr .gt_spanner_row { border-bottom-style: hidden; }
+ #wginunvykr .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
+ #wginunvykr .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
+ #wginunvykr .gt_from_md> :first-child { margin-top: 0; }
+ #wginunvykr .gt_from_md> :last-child { margin-bottom: 0; }
+ #wginunvykr .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
+ #wginunvykr .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #wginunvykr .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #wginunvykr .gt_row_group_first td { border-top-width: 0.5px; }
+ #wginunvykr .gt_row_group_first th { border-top-width: 0.5px; }
+ #wginunvykr .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #wginunvykr .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
+ #wginunvykr .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #wginunvykr .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #wginunvykr .gt_left { text-align: left; }
+ #wginunvykr .gt_center { text-align: center; }
+ #wginunvykr .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #wginunvykr .gt_font_normal { font-weight: normal; }
+ #wginunvykr .gt_font_bold { font-weight: bold; }
+ #wginunvykr .gt_font_italic { font-style: italic; }
+ #wginunvykr .gt_super { font-size: 65%; }
+ #wginunvykr .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #wginunvykr .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -2229,15 +2229,15 @@ dtype: float64</code></pre>
 <td colspan="4" class="gt_group_heading" data-quarto-table-cell-role="th">fe</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">f2</td>
-<td class="gt_row gt_center">-</td>
-<td class="gt_row gt_center">-</td>
-<td class="gt_row gt_center">x</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">f1</td>
 <td class="gt_row gt_center">-</td>
 <td class="gt_row gt_center">x</td>
+<td class="gt_row gt_center">x</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">f2</td>
+<td class="gt_row gt_center">-</td>
+<td class="gt_row gt_center">-</td>
 <td class="gt_row gt_center">x</td>
 </tr>
 <tr class="odd gt_group_heading_row">
@@ -2275,7 +2275,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>You can access an individual model by its name - i.e.&nbsp;a formula - via the <code>all_fitted_models</code> attribute.</p>
-<div id="f0fb54a4" class="cell" data-execution_count="44">
+<div id="3e61f7a5" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>multi_fit.all_fitted_models[<span class="st">"Y~X1"</span>].tidy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <div>
@@ -2328,7 +2328,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>or equivalently via the <code>fetch_model</code> method:</p>
-<div id="6ce71dfa" class="cell" data-execution_count="45">
+<div id="3d3aaf44" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>multi_fit.fetch_model(<span class="dv">0</span>).tidy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Model:  Y~X1</code></pre>
@@ -2385,7 +2385,7 @@ dtype: float64</code></pre>
 </div>
 <p>Here, <code>0</code> simply fetches the first model stored in the <code>all_fitted_models</code> dictionary, <code>1</code> the second etc.</p>
 <p>Objects of type <code>Fixest</code> come with a range of additional methods: <code>tidy()</code>, <code>coef()</code>, <code>vcov()</code> etc, which essentially loop over the equivalent methods of all fitted models. E.g. <code>Fixest.vcov()</code> updates inference for all models stored in <code>Fixest</code>.</p>
-<div id="6ff74434" class="cell" data-execution_count="46">
+<div id="fbdb297d" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>multi_fit.vcov(<span class="st">"iid"</span>).summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>###
@@ -2428,7 +2428,7 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 </div>
 </div>
 <p>You can summarize multiple models at once via <code>etable()</code>. <code>etable()</code> has many options to customize the output to obtain publication-ready tables.</p>
-<div id="172f24bd" class="cell" data-execution_count="47">
+<div id="830b1b44" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>pf.etable(</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>    [fit, fit2],</span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"Y"</span>: <span class="st">"Wage"</span>, <span class="st">"X1"</span>: <span class="st">"Age"</span>, <span class="st">"X2"</span>: <span class="st">"Years of Schooling"</span>},</span>
@@ -2436,52 +2436,52 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 <span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>    caption<span class="op">=</span><span class="st">"Regression Results"</span>,</span>
 <span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="47">
-<div id="pgmamlngol" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="nlhlnbziey" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#pgmamlngol table {
+#nlhlnbziey table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#pgmamlngol thead, tbody, tfoot, tr, td, th { border-style: none; }
+#nlhlnbziey thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#pgmamlngol p { margin: 0; padding: 0; }
- #pgmamlngol .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: hidden; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #pgmamlngol .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #pgmamlngol .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #pgmamlngol .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #pgmamlngol .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #pgmamlngol .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #pgmamlngol .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #pgmamlngol .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #pgmamlngol .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #pgmamlngol .gt_column_spanner_outer:first-child { padding-left: 0; }
- #pgmamlngol .gt_column_spanner_outer:last-child { padding-right: 0; }
- #pgmamlngol .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
- #pgmamlngol .gt_spanner_row { border-bottom-style: hidden; }
- #pgmamlngol .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
- #pgmamlngol .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
- #pgmamlngol .gt_from_md> :first-child { margin-top: 0; }
- #pgmamlngol .gt_from_md> :last-child { margin-bottom: 0; }
- #pgmamlngol .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
- #pgmamlngol .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #pgmamlngol .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #pgmamlngol .gt_row_group_first td { border-top-width: 0.5px; }
- #pgmamlngol .gt_row_group_first th { border-top-width: 0.5px; }
- #pgmamlngol .gt_striped { background-color: rgba(128,128,128,0.05); }
- #pgmamlngol .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
- #pgmamlngol .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #pgmamlngol .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #pgmamlngol .gt_left { text-align: left; }
- #pgmamlngol .gt_center { text-align: center; }
- #pgmamlngol .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #pgmamlngol .gt_font_normal { font-weight: normal; }
- #pgmamlngol .gt_font_bold { font-weight: bold; }
- #pgmamlngol .gt_font_italic { font-style: italic; }
- #pgmamlngol .gt_super { font-size: 65%; }
- #pgmamlngol .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #pgmamlngol .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#nlhlnbziey p { margin: 0; padding: 0; }
+ #nlhlnbziey .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: hidden; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #nlhlnbziey .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #nlhlnbziey .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #nlhlnbziey .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #nlhlnbziey .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #nlhlnbziey .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #nlhlnbziey .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #nlhlnbziey .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #nlhlnbziey .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #nlhlnbziey .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #nlhlnbziey .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #nlhlnbziey .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #nlhlnbziey .gt_spanner_row { border-bottom-style: hidden; }
+ #nlhlnbziey .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
+ #nlhlnbziey .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
+ #nlhlnbziey .gt_from_md> :first-child { margin-top: 0; }
+ #nlhlnbziey .gt_from_md> :last-child { margin-bottom: 0; }
+ #nlhlnbziey .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
+ #nlhlnbziey .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #nlhlnbziey .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #nlhlnbziey .gt_row_group_first td { border-top-width: 0.5px; }
+ #nlhlnbziey .gt_row_group_first th { border-top-width: 0.5px; }
+ #nlhlnbziey .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #nlhlnbziey .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
+ #nlhlnbziey .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #nlhlnbziey .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #nlhlnbziey .gt_left { text-align: left; }
+ #nlhlnbziey .gt_center { text-align: center; }
+ #nlhlnbziey .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #nlhlnbziey .gt_font_normal { font-weight: normal; }
+ #nlhlnbziey .gt_font_bold { font-weight: bold; }
+ #nlhlnbziey .gt_font_italic { font-style: italic; }
+ #nlhlnbziey .gt_super { font-size: 65%; }
+ #nlhlnbziey .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #nlhlnbziey .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -2567,16 +2567,16 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 </div>
 </div>
 <p>You can also visualize multiple estimation results via <code>iplot()</code> and <code>coefplot()</code>:</p>
-<div id="428a36e6" class="cell" data-execution_count="48">
+<div id="441b51d9" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>multi_fit.coefplot().show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-   <div id="YcMSxd"></div>
+   <div id="A4k4AK"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
    (function() {
    // ----------
    
-   var containerDiv = document.getElementById("YcMSxd");
+   var containerDiv = document.getElementById("A4k4AK");
    var observer = new ResizeObserver(function(entries) {
        for (let entry of entries) {
            var width = containerDiv.clientWidth
@@ -2732,7 +2732,7 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 <section id="difference-in-differences-event-study-designs" class="level1">
 <h1>Difference-in-Differences / Event Study Designs</h1>
 <p><code>PyFixest</code> supports eventy study designs via two-way fixed effects, Gardner’s 2-stage estimator, and the linear projections estimator.</p>
-<div id="a742cfe5" class="cell" data-execution_count="49">
+<div id="3c911709" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/py-econometrics/pyfixest/master/pyfixest/did/data/df_het.csv"</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>df_het <span class="op">=</span> pd.read_csv(url)</span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2853,7 +2853,7 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 </div>
 </div>
 </div>
-<div id="1161abe8" class="cell" data-execution_count="50">
+<div id="7805f1d9" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>fit_did2s <span class="op">=</span> pf.did2s(</span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>    df_het,</span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>    yname<span class="op">=</span><span class="st">"dep_var"</span>,</span>
@@ -2874,13 +2874,13 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 <span id="cb78-18"><a href="#cb78-18" aria-hidden="true" tabindex="-1"></a>    [fit_did2s, fit_twfe], coord_flip<span class="op">=</span><span class="va">False</span>, figsize<span class="op">=</span>(<span class="dv">900</span>, <span class="dv">400</span>), title<span class="op">=</span><span class="st">"TWFE vs DID2S"</span></span>
 <span id="cb78-19"><a href="#cb78-19" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
-   <div id="TBEwBa"></div>
+   <div id="Vgz0vC"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
    (function() {
    // ----------
    
-   var containerDiv = document.getElementById("TBEwBa");
+   var containerDiv = document.getElementById("Vgz0vC");
    var observer = new ResizeObserver(function(entries) {
        for (let entry of entries) {
            var width = containerDiv.clientWidth
@@ -3021,7 +3021,7 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 </div>
 </div>
 <p>The <code>event_study()</code> function provides a common API for several event study estimators.</p>
-<div id="8545ad27" class="cell" data-execution_count="51">
+<div id="e96c04e2" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>fit_twfe <span class="op">=</span> pf.event_study(</span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_het,</span>
 <span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>    yname<span class="op">=</span><span class="st">"dep_var"</span>,</span>
@@ -3042,52 +3042,52 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 <span id="cb79-18"><a href="#cb79-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb79-19"><a href="#cb79-19" aria-hidden="true" tabindex="-1"></a>pf.etable([fit_twfe, fit_did2s])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="51">
-<div id="etylezvzuq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cvfimimcjv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#etylezvzuq table {
+#cvfimimcjv table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#etylezvzuq thead, tbody, tfoot, tr, td, th { border-style: none; }
+#cvfimimcjv thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#etylezvzuq p { margin: 0; padding: 0; }
- #etylezvzuq .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #etylezvzuq .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #etylezvzuq .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #etylezvzuq .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #etylezvzuq .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #etylezvzuq .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #etylezvzuq .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #etylezvzuq .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #etylezvzuq .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #etylezvzuq .gt_column_spanner_outer:first-child { padding-left: 0; }
- #etylezvzuq .gt_column_spanner_outer:last-child { padding-right: 0; }
- #etylezvzuq .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
- #etylezvzuq .gt_spanner_row { border-bottom-style: hidden; }
- #etylezvzuq .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
- #etylezvzuq .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
- #etylezvzuq .gt_from_md> :first-child { margin-top: 0; }
- #etylezvzuq .gt_from_md> :last-child { margin-bottom: 0; }
- #etylezvzuq .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
- #etylezvzuq .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #etylezvzuq .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #etylezvzuq .gt_row_group_first td { border-top-width: 0.5px; }
- #etylezvzuq .gt_row_group_first th { border-top-width: 0.5px; }
- #etylezvzuq .gt_striped { background-color: rgba(128,128,128,0.05); }
- #etylezvzuq .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
- #etylezvzuq .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #etylezvzuq .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #etylezvzuq .gt_left { text-align: left; }
- #etylezvzuq .gt_center { text-align: center; }
- #etylezvzuq .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #etylezvzuq .gt_font_normal { font-weight: normal; }
- #etylezvzuq .gt_font_bold { font-weight: bold; }
- #etylezvzuq .gt_font_italic { font-style: italic; }
- #etylezvzuq .gt_super { font-size: 65%; }
- #etylezvzuq .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #etylezvzuq .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#cvfimimcjv p { margin: 0; padding: 0; }
+ #cvfimimcjv .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: hidden; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #cvfimimcjv .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #cvfimimcjv .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #cvfimimcjv .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #cvfimimcjv .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cvfimimcjv .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #cvfimimcjv .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cvfimimcjv .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: bottom; padding-top: 4px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #cvfimimcjv .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #cvfimimcjv .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #cvfimimcjv .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #cvfimimcjv .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: bottom; padding-top: 4px; padding-bottom: 4px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #cvfimimcjv .gt_spanner_row { border-bottom-style: hidden; }
+ #cvfimimcjv .gt_group_heading { padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; border-left-style: none; border-left-width: 1px; border-left-color: white; border-right-style: none; border-right-width: 1px; border-right-color: white; vertical-align: middle; text-align: left; }
+ #cvfimimcjv .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 0px; font-weight: initial; border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 0.5px; border-bottom-color: black; vertical-align: middle; }
+ #cvfimimcjv .gt_from_md> :first-child { margin-top: 0; }
+ #cvfimimcjv .gt_from_md> :last-child { margin-bottom: 0; }
+ #cvfimimcjv .gt_row { padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 0px; border-left-color: white; border-right-style: none; border-right-width: 0px; border-right-color: white; vertical-align: middle; overflow-x: hidden; }
+ #cvfimimcjv .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: hidden; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #cvfimimcjv .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #cvfimimcjv .gt_row_group_first td { border-top-width: 0.5px; }
+ #cvfimimcjv .gt_row_group_first th { border-top-width: 0.5px; }
+ #cvfimimcjv .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #cvfimimcjv .gt_table_body { border-top-style: solid; border-top-width: 0.5px; border-top-color: black; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: black; }
+ #cvfimimcjv .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #cvfimimcjv .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #cvfimimcjv .gt_left { text-align: left; }
+ #cvfimimcjv .gt_center { text-align: center; }
+ #cvfimimcjv .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #cvfimimcjv .gt_font_normal { font-weight: normal; }
+ #cvfimimcjv .gt_font_bold { font-weight: bold; }
+ #cvfimimcjv .gt_font_italic { font-style: italic; }
+ #cvfimimcjv .gt_super { font-size: 65%; }
+ #cvfimimcjv .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #cvfimimcjv .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -3123,12 +3123,12 @@ RMSE: 1.441 R2: 0.609 R2 Within: 0.2 </code></pre>
 <td colspan="3" class="gt_group_heading" data-quarto-table-cell-role="th">fe</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">state</td>
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">year</td>
 <td class="gt_row gt_center">x</td>
 <td class="gt_row gt_center">-</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">year</td>
+<td class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th">state</td>
 <td class="gt_row gt_center">x</td>
 <td class="gt_row gt_center">-</td>
 </tr>
